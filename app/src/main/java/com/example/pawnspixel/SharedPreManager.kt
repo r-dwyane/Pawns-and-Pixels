@@ -36,4 +36,8 @@ class SharedPrefManager(private val context: Context) {
     fun clearUserData() {
         sharedPreferences.edit().clear().apply()
     }
+
+    fun saveUserData(email: String, name: String, password: String, contactNumber: String) {
+
+    }
 }

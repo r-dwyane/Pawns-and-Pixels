@@ -53,20 +53,20 @@ class StartActivity : AppCompatActivity() {
             true
         }
 
-//        val sharedPrefManager = SharedPrefManager(this)
-//        if (sharedPrefManager.getUserEmail() != null && sharedPrefManager.getUserName() != null && sharedPrefManager.getUserId() != null) {
-//
-//            SessionManager.email = sharedPrefManager.getUserEmail()
-//            SessionManager.name = sharedPrefManager.getUserName()
-//            SessionManager.userId = sharedPrefManager.getUserId()
-//
-//            val intent = Intent(this, HomeActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
+        val sharedPrefManager = SharedPrefManager(this)
+        if (sharedPrefManager.getUserEmail() != null && sharedPrefManager.getUserName() != null && sharedPrefManager.getUserId() != null) {
+
+            SessionManager.email = sharedPrefManager.getUserEmail()
+            SessionManager.name = sharedPrefManager.getUserName()
+            SessionManager.userId = sharedPrefManager.getUserId()
+
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         startButton.setOnClickListener {
-            val fragment2 = CustomerSignUpFragment()
+            val fragment2 = CustomerSignInFragment()
             fragment2.show(supportFragmentManager, "Android Center")
         }
     }
