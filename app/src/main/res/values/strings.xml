@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">PawnsPixel</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="terms_and_conditions_text">
+    By creating an account, you agree to the \n<b><u>Terms and Conditions</u></b>
+    </string>
+    <string name="already_have_an_account">
+    Already have an account? <b><u>Sign In</u></b>
+    </string>
+    <string name="sign_up">
+    Don\'t have an account? <b><u>Sign Up</u></b>
+    </string>
+</resources>
