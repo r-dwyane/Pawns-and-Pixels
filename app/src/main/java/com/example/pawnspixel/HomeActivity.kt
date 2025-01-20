@@ -1,22 +1,15 @@
 package com.example.pawnspixel
 
-import android.app.Dialog
-import android.content.Intent
 import android.os.Bundle
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
+import android.util.TypedValue
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.firebase.auth.FirebaseAuth
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
 
 class HomeActivity : AppCompatActivity() {
-    private lateinit var dialog: Dialog
-    private lateinit var cancelButton: Button
-    private lateinit var confirmButton: Button
-    private lateinit var logOutButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,59 +20,28 @@ class HomeActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        logOutButton = findViewById(R.id.logout)
+        setUpTabBar()
+    }
 
-        val sharedPrefManager = SharedPrefManager(this)
-        val email = sharedPrefManager.getUserEmail()
-        val name = sharedPrefManager.getUserName()
-        val id = sharedPrefManager.getUserId()
+    private fun setUpTabBar() {
+        val tabLayout = findViewById<TabLayout>(R.id.tablayout)
+        val viewPager = findViewById<ViewPager2>(R.id.viewPager)
+        val adapter = TabPageAdapter(this, tabLayout.tabCount)
+        viewPager.adapter = adapter
 
-        if (email != null && name != null && id != null) {
-            SessionManager.email = email
-            SessionManager.name = name
-            SessionManager.userId = id
-        }
+        viewPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                tabLayout.selectTab(tabLayout.getTabAt(position))
+            }
+        })
 
-        val userName = SessionManager.name
-        val userEmail = SessionManager.email
-
-        if (userName != null && userEmail != null) {
-            Toast.makeText(this, "Name: $userName \n Email: $userEmail", Toast.LENGTH_SHORT).show()
-        } else {
-            Toast.makeText(this, "User details not available", Toast.LENGTH_SHORT).show()
-        }
-
-        dialog = Dialog(this)
-        dialog.setContentView(R.layout.fragment_popup)
-        dialog.window?.setLayout(
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-        dialog.setCancelable(false)
-        cancelButton = dialog.findViewById(R.id.cancel)
-        confirmButton = dialog.findViewById(R.id.confirm)
-
-        logOutButton.setOnClickListener{
-            dialog.show()
-        }
-
-        cancelButton.setOnClickListener {
-            dialog.dismiss()
-        }
-
-        confirmButton.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-
-            sharedPrefManager.clearUserData()
-
-            SessionManager.clearSession()
-
-            val intent = Intent(this, StartActivity::class.java)
-            startActivity(intent)
-            Toast.makeText(this, "Sign Out Successfully", Toast.LENGTH_SHORT).show()
-
-            finish()
-        }
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                viewPager.currentItem = tab.position
+            }
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+        })
 
     }
 }

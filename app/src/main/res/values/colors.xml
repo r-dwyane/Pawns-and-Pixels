@@ -7,4 +7,8 @@
     <color name="yellow">#FFC300</color>
     <color name="dirtywhite">#E2DFD2</color>
     <color name="dark">#232323</color>
+    <color name="lightBlack">#232323</color>
+    <color name="lightBlue">#0062FF</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="purple_500">#FFC300</color>
 </resources>

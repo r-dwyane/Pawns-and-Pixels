@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TabTextAppearanceActive" parent="TextAppearance.AppCompat">
+        <item name="tabIconTint">@color/yellow</item>
+        <item name="android:fontFamily">@font/readex_pro</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="TabTextAppearanceInactive" parent="TextAppearance.AppCompat">
+        <item name="tabIconTint">@color/white</item>
+        <item name="android:fontFamily">@font/readex_pro</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="TabStyle">
+        <item name="tabTextAppearance">@style/TabTextAppearanceInactive</item>
+        <item name="tabRippleColor">@null</item>
+    </style>
+</resources>
