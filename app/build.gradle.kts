@@ -51,6 +51,7 @@ dependencies {
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.common)
     implementation(libs.firebase.database)
+    implementation(libs.androidx.gridlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

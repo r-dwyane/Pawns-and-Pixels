@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--    NOTE:   -->
+
+    <!--    NOT USED PA KAY NAA NAY FILE NA button_bg1.png
+            (mao ni nga file gigamit sa games buttons) -->
+
+
+
+    <!--    <item>-->
+    <!--        <shape android:shape="rectangle">-->
+    <!--            <gradient-->
+    <!--                android:startColor="@color/white"-->
+    <!--                android:endColor="#33FFFFFF"-->
+    <!--                android:angle="270"/>-->
+    <!--            <corners android:radius="50dp"/>-->
+    <!--        </shape>-->
+    <!--    </item>-->
+
+    <!--    <item android:top="0dp" android:left="0dp" android:right="0dp" android:bottom="3dp">-->
+    <!--        <shape android:shape="rectangle">-->
+    <!--            <gradient-->
+    <!--                android:startColor="@color/pink"-->
+    <!--                android:endColor="@color/darkBlue"-->
+    <!--                android:angle="270"/>-->
+    <!--            <corners-->
+    <!--                android:radius="50dp"/>-->
+    <!--        </shape>-->
+    <!--    </item>-->
+
+    <!--    <item android:height="50dp">-->
+    <!--        <shape android:shape="rectangle">-->
+    <!--            <gradient-->
+    <!--                android:startColor="#80000000"-->
+    <!--                android:endColor="#00000000"-->
+    <!--                android:angle="270"/>-->
+    <!--            <corners-->
+    <!--                android:radius="50dp"/>-->
+    <!--        </shape>-->
+    <!--    </item>-->
+
+</layer-list>
