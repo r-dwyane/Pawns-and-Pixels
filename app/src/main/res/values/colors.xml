@@ -2,13 +2,27 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="pink">#FF166E</color>
-    <color name="blue">#04187C</color>
-    <color name="yellow">#FFC300</color>
-    <color name="dirtywhite">#E2DFD2</color>
-    <color name="dark">#232323</color>
-    <color name="lightBlack">#232323</color>
+
+    <!--background-->
+    <color name="pinkBg">#F21B5C</color>
+    <color name="blueBg">#04064D</color>
+
+    <!--icons-->
+    <color name="yellow">#F8CD40</color>
+
+    <!--others-->
+    <color name="pink">#F6059E</color>
+
+    <color name="blue">#031C99</color>
     <color name="lightBlue">#0062FF</color>
+    <color name="darkBlue">#04187C</color>
+
+    <color name="lightGray">#BEB2B2</color>
+    <color name="lightBlack">#232323</color>
     <color name="transparent">#00FFFFFF</color>
-    <color name="purple_500">#FFC300</color>
+
+    <!--  Rhon Colors  -->
+    <color name="hotPink">#FF166E</color>
+    <color name="hotYellow">#FFC300</color>
+    <color name="dirtyWhite">#E2DFD2</color>
 </resources>
