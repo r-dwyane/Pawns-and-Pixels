@@ -54,7 +54,6 @@ class MainActivity : AppCompatActivity() {
             window.decorView.startAnimation(slideDown)
             val intent = Intent(this, StartActivity::class.java)
             startActivity(intent)
-            finish()
         }
     }
 }
