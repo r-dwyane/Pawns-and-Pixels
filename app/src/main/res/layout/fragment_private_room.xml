@@ -73,28 +73,10 @@
 
         </FrameLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:hint="Rates:"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            >
-
-            <AutoCompleteTextView
-                android:id="@+id/auto_complete_txt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/redhatdisplay_regular"
-                android:textSize="11sp"
-                android:inputType="none"
-                android:textColor="@color/yellow" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:text="Sharpen your cue skills and enjoy a friendly match on our billiards table. Whether you're a pro or a beginner, it's a great way to unwind and socialize."

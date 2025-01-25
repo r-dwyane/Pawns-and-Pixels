@@ -16,4 +16,10 @@
         <item name="tabTextAppearance">@style/TabTextAppearanceInactive</item>
         <item name="tabRippleColor">@null</item>
     </style>
+
+    <style name="TabTextAppearanceReservations" parent="TextAppearance.AppCompat">
+        <item name="tabIconTint">@color/white</item>
+        <item name="android:fontFamily">@font/readex_pro</item>
+        <item name="android:textSize">13sp</item>
+    </style>
 </resources>

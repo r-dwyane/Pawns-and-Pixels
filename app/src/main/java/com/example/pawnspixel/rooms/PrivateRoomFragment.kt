@@ -18,18 +18,6 @@ class PrivateRoomFragment : BottomSheetDialogFragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_private_room, container, false)
 
-        val items = arrayOf("Php 39 | per person")
-
-        val autoCompleteTextView = view.findViewById<AutoCompleteTextView>(R.id.auto_complete_txt)
-        val adapterItems = ArrayAdapter(requireContext(), R.layout.list_item, items)
-        autoCompleteTextView.setAdapter(adapterItems)
-
-        autoCompleteTextView.onItemClickListener =
-            AdapterView.OnItemClickListener { adapterView, _, position, _ ->
-                // Get the selected item value
-                val item = adapterView.getItemAtPosition(position).toString()
-            }
-
         return view
     }
 }
