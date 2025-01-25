@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import com.example.pawnspixel.R
 import com.google.android.material.tabs.TabLayout
@@ -15,6 +17,12 @@ class Reservations : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_reservations, container, false)
+
+        val add = view?.findViewById<ImageButton>(R.id.new_reservations)
+        add?.setOnClickListener {
+            val fragment = NewReservations()
+            fragment.show(parentFragmentManager, "Android Center")
+        }
 
         val tabLayout = view.findViewById<TabLayout>(R.id.tablayout2)
 
@@ -46,6 +54,7 @@ class Reservations : Fragment() {
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
             override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
+
 
         return view
     }

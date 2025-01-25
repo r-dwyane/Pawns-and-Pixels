@@ -22,10 +22,10 @@ class PendingFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         val reservations = listOf(
-            ReservationsDataClass("Pending", "Game Room 1", "2025-01-25"),
-            ReservationsDataClass("Pending", "Game Room 2", "2025-01-26"),
-            ReservationsDataClass("Pending", "Game Room 3", "2025-01-27"),
-            ReservationsDataClass("Pending", "Game Room 4", "2025-01-25")
+            ReservationsDataClass("Status: Pending", "Game Room 1", "2025-01-25"),
+            ReservationsDataClass("Status: Pending", "Game Room 2", "2025-01-26"),
+            ReservationsDataClass("Status: Pending", "Game Room 3", "2025-01-27"),
+            ReservationsDataClass("Status: Pending", "Game Room 4", "2025-01-25")
         )
 
         recyclerView.adapter = ReservationsAdapter(reservations, object : ReservationsAdapter.OnItemClickListener {

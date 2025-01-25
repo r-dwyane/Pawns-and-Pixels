@@ -109,7 +109,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/reserve_now"
+            android:id="@+id/reserve_now3"
             android:fontFamily="@font/readexpro_semibold"
             android:text="Reserve Now!"
             android:background="@drawable/button_selector"

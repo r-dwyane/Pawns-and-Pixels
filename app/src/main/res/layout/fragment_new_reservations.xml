@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/admin_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@null"
+    tools:context=".authentication.AdminSignInFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bottomsheet"
+        android:layout_gravity="bottom"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose your Game:"
+            android:fontFamily="@font/readexpro_semibold"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            />
+
+        <FrameLayout
+            android:id="@+id/nintendo_roomLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/nintendo_new"
+            android:alpha="0.9"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nintendo Game Room"
+                android:textColor="@color/white"
+                android:fontFamily="@font/syne_bold"
+                android:textSize="16sp"
+                android:layout_margin="20dp"
+                />
+            <TextView
+                android:id="@+id/nintendo_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status:"
+                android:textColor="@color/white"
+                android:fontFamily="@font/red_hat_display_medium"
+                android:textSize="16sp"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="20dp"
+                />
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/private_roomLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/private_new"
+            android:alpha="0.8"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Private Room"
+                android:textColor="@color/white"
+                android:fontFamily="@font/syne_bold"
+                android:textSize="16sp"
+                android:layout_margin="20dp"
+                />
+            <TextView
+                android:id="@+id/private_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status:"
+                android:textColor="@color/white"
+                android:fontFamily="@font/red_hat_display_medium"
+                android:textSize="16sp"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="20dp"
+                />
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/pixels_gaming1Layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/pixels_new1"
+            android:alpha="0.8"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pixels Gaming (TV 1)"
+                android:textColor="@color/white"
+                android:fontFamily="@font/syne_bold"
+                android:textSize="16sp"
+                android:layout_margin="20dp"
+                />
+            <TextView
+                android:id="@+id/pixelsGaming1_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status:"
+                android:textColor="@color/white"
+                android:fontFamily="@font/red_hat_display_medium"
+                android:textSize="16sp"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="20dp"
+                />
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/pixels_gaming2Layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/pixels_new2"
+            android:alpha="0.8"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pixels Gaming (TV 2)"
+                android:textColor="@color/white"
+                android:fontFamily="@font/syne_bold"
+                android:textSize="16sp"
+                android:layout_margin="20dp"
+                />
+            <TextView
+                android:id="@+id/pixelsGaming2_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status:"
+                android:textColor="@color/white"
+                android:fontFamily="@font/red_hat_display_medium"
+                android:textSize="16sp"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="20dp"
+                />
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/billiardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/billiard_new"
+            android:alpha="0.8"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Billiard Table"
+                android:textColor="@color/white"
+                android:fontFamily="@font/syne_bold"
+                android:textSize="16sp"
+                android:layout_margin="20dp"
+                />
+            <TextView
+                android:id="@+id/billiard_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status:"
+                android:textColor="@color/white"
+                android:fontFamily="@font/red_hat_display_medium"
+                android:textSize="16sp"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="20dp"
+                />
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>

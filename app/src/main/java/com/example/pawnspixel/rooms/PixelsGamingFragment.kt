@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Button
 import com.example.pawnspixel.R
+import com.example.pawnspixel.reservations.NewReservations
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class PixelsGamingFragment : BottomSheetDialogFragment() {
@@ -29,6 +31,12 @@ class PixelsGamingFragment : BottomSheetDialogFragment() {
                 // Get the selected item value
                 val item = adapterView.getItemAtPosition(position).toString()
             }
+        val add = view?.findViewById<Button>(R.id.reserve_now3)
+        add?.setOnClickListener {
+            val fragment = NewReservations()
+            fragment.show(parentFragmentManager, "Android Center")
+            dismiss()
+        }
 
         return view
     }

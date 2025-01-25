@@ -79,7 +79,9 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
             android:hint="Rates:"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             >
@@ -98,8 +100,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
             android:text="Dive into an immersive gaming experience with our Nintendo Switch setup. Featuring a wide selection of multiplayer games, this room is great for gamers of all ages."
             android:textColor="@color/white"
             android:textSize="12sp"
@@ -110,7 +113,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/reserve_now"
+            android:id="@+id/reserve_now1"
             android:fontFamily="@font/readexpro_semibold"
             android:text="Reserve Now!"
             android:background="@drawable/button_selector"
