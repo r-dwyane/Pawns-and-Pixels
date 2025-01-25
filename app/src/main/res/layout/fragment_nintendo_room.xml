@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/admin_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null"
+    android:backgroundTint="@null"
+    tools:context=".rooms.NintendoRoomFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:backgroundTint="@null"
+        android:background="@drawable/bottomsheet"
+        android:layout_gravity="bottom">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/nintendo_room"
+            android:layout_gravity="center"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="Nintendo Switch Game Room"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/syne_bold"
+                android:layout_gravity="center"
+                />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_gravity="center"
+            >
+
+            <ViewFlipper
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:flipInterval="2000"
+                android:autoStart="true"
+                android:inAnimation="@anim/slide_in_left"
+                android:outAnimation="@anim/slide_out_right"
+                >
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/nintendo_img" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/nintendo_img2" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/nintendo_img3" />
+
+
+            </ViewFlipper>
+
+        </FrameLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:hint="Rates:"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            >
+
+            <AutoCompleteTextView
+                android:id="@+id/auto_complete_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/redhatdisplay_regular"
+                android:textSize="11sp"
+                android:inputType="none"
+                android:textColor="@color/yellow" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="Dive into an immersive gaming experience with our Nintendo Switch setup. Featuring a wide selection of multiplayer games, this room is great for gamers of all ages."
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:lineHeight="30dp"
+            android:fontFamily="@font/redhatdisplay_regular"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/reserve_now"
+            android:fontFamily="@font/readexpro_semibold"
+            android:text="Reserve Now!"
+            android:background="@drawable/button_selector"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            android:layout_margin="20dp"
+            />
+    </LinearLayout>
+</FrameLayout>

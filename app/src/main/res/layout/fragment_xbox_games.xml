@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".XboxGames">
+    android:background="@drawable/page_background"
+    tools:context=".games.XboxGames">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

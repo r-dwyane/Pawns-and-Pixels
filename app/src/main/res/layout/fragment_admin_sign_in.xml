@@ -5,13 +5,15 @@
     android:id="@+id/admin_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminSignInFragment">
+    android:backgroundTint="@null"
+    tools:context=".authentication.AdminSignInFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@drawable/bottomsheet"
+        android:layout_gravity="bottom"
         android:paddingTop="50dp"
         android:paddingBottom="50dp"
         android:paddingStart="30dp"

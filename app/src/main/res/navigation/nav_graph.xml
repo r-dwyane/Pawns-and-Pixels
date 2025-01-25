@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.pawnspixel.Home"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_boardGames"
+            app:destination="@id/boardGames"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_home_to_nintendoSwitchGames"
+            app:destination="@id/nintendoSwitchGames"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_home_to_xboxGames"
+            app:destination="@id/xboxGames"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/boardGames"
+        android:name="com.example.pawnspixel.games.BoardGames"
+        android:label="Board Games"
+        tools:layout="@layout/fragment_boardgames">
+        <action
+            android:id="@+id/action_boardGames_to_home"
+            app:destination="@id/home"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/nintendoSwitchGames"
+        android:name="com.example.pawnspixel.games.NintendoSwitchGames"
+        android:label="fragment_nintendo_switch_games"
+        tools:layout="@layout/fragment_nintendo_switch_games" >
+        <action
+            android:id="@+id/action_nintendoSwitchGames_to_home"
+            app:destination="@id/home"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/xboxGames"
+        android:name="com.example.pawnspixel.games.XboxGames"
+        android:label="fragment_xbox_games"
+        tools:layout="@layout/fragment_xbox_games" >
+        <action
+            android:id="@+id/action_xboxGames_to_home"
+            app:destination="@id/home"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right" />
+    </fragment>
+
+
+</navigation>

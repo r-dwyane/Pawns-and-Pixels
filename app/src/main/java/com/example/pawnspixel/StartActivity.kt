@@ -6,13 +6,13 @@ import android.os.Bundle
 import android.os.SystemClock
 import android.view.MotionEvent
 import android.widget.Button
-import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.pawnspixel.authentication.AdminSignInFragment
+import com.example.pawnspixel.authentication.CustomerSignInFragment
 import pl.droidsonroids.gif.GifImageButton
-import pl.droidsonroids.gif.GifImageView
 
 class StartActivity : AppCompatActivity() {
     private lateinit var gifImageView: GifImageButton

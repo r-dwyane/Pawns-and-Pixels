@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/page_background"
@@ -75,7 +76,6 @@
                 android:id="@+id/gamesLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
@@ -83,6 +83,7 @@
                     android:id="@+id/gamesTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
                     android:fontFamily="@font/syne_bold"
                     android:layout_marginEnd="25dp"
                     android:text="Games"
@@ -92,6 +93,7 @@
                 <ImageView
                     android:id="@+id/contentDivider1"
                     android:layout_width="match_parent"
+                    android:layout_marginStart="25dp"
                     android:layout_height="1dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
@@ -101,12 +103,15 @@
                 <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_gravity="left"
+                    android:padding="5sp"
                     android:scrollbars="none">
 
                     <LinearLayout
                         android:id="@+id/gamesButtonsLayout"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginStart="25dp"
                         android:orientation="horizontal">
 
                         <FrameLayout
@@ -197,7 +202,8 @@
                         <FrameLayout
                             android:id="@+id/nintendoFrameLayout"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="40dp">
 
                             <ImageButton
                                 android:id="@+id/nintendoButton"
@@ -245,6 +251,7 @@
                     android:layout_height="1dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
+                    android:layout_marginStart="25dp"
                     android:layout_marginEnd="25dp"
                     android:src="@drawable/content_divider" />
 
@@ -410,7 +417,8 @@
                             android:orientation="vertical">
 
                             <FrameLayout
-                                android:layout_width="match_parent"
+                                android:id="@+id/nintendo_rooms"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
                                 <ImageView
@@ -451,12 +459,13 @@
                         app:layout_gravity="center">
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
                             <FrameLayout
-                                android:layout_width="match_parent"
+                                android:id="@+id/pixels_gaming"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
                                 <ImageView
@@ -502,7 +511,8 @@
                             android:orientation="vertical">
 
                             <FrameLayout
-                                android:layout_width="match_parent"
+                                android:id="@+id/private_room"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
                                 <ImageView
@@ -543,12 +553,13 @@
                         app:layout_gravity="center">
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
                             <FrameLayout
-                                android:layout_width="match_parent"
+                                android:id="@+id/billiard_table"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
                                 <ImageView

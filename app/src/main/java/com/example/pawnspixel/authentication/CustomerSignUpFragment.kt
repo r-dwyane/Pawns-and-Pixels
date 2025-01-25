@@ -1,6 +1,5 @@
-package com.example.pawnspixel
+package com.example.pawnspixel.authentication
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +9,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.pawnspixel.HomeActivity
+import com.example.pawnspixel.R
+import com.example.pawnspixel.SharedPrefManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore

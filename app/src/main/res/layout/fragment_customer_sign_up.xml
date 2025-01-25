@@ -5,12 +5,13 @@
     android:id="@+id/admin_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bottomsheet"
-    tools:context=".CustomerSignUpFragment">
+    android:backgroundTint="@null"
+    tools:context=".authentication.CustomerSignUpFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bottomsheet"
         android:orientation="vertical"
         android:paddingTop="50dp"
         android:paddingBottom="50dp"

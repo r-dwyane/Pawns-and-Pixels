@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         setContentView(R.layout.activity_main)
-        val slideDown = AnimationUtils.loadAnimation(this@MainActivity, R.anim.slide_down)
+        val slideDown = AnimationUtils.loadAnimation(this@MainActivity, R.anim.slide_in_left)
         videoView = findViewById(R.id.videoView)
 
         val path = "android.resource://$packageName/${R.raw.splash}"
@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity() {
             window.decorView.startAnimation(slideDown)
             val intent = Intent(this, StartActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
     }
 }
