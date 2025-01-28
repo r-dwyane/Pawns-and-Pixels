@@ -80,7 +80,7 @@ class CustomerSignInFragment : BottomSheetDialogFragment() {
                     val userId = document.id
 
                     // Save user data to SharedPreferences
-                    sharedPrefManager.saveUserData(email, name, "", contactNumber, userId)
+                    sharedPrefManager.saveUserData(email, name, contactNumber, userId)
 
                     // Update session manager
                     SessionManager.userId = userId

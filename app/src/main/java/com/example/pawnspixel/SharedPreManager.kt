@@ -10,17 +10,15 @@ class SharedPrefManager(private val context: Context) {
     companion object {
         private const val USER_EMAIL = "user_email"
         private const val USER_NAME = "user_name"
-        private const val USER_PASSWORD = "user_password"
         private const val USER_ID = "user_id"
         private const val USER_CONTACT = "contact_number"
     }
 
     // Save user data to SharedPreferences
-    fun saveUserData(email: String, name: String, password: String, contactNumber: String, userId: String) {
+    fun saveUserData(email: String, name: String, contactNumber: String, userId: String) {
         val editor = sharedPreferences.edit()
         editor.putString(USER_EMAIL, email)
         editor.putString(USER_NAME, name)
-        editor.putString(USER_PASSWORD, password)
         editor.putString(USER_CONTACT, contactNumber)
         editor.putString(USER_ID, userId)
         editor.apply()
@@ -29,7 +27,6 @@ class SharedPrefManager(private val context: Context) {
     fun getUserEmail(): String? = sharedPreferences.getString(USER_EMAIL, null)
     fun getUserNumber(): String? = sharedPreferences.getString(USER_CONTACT, null)
     fun getUserName(): String? = sharedPreferences.getString(USER_NAME, null)
-    fun getUserPassword(): String? = sharedPreferences.getString(USER_PASSWORD, null)
     fun getUserId(): String? = sharedPreferences.getString(USER_ID, null)
 
     // Clear user data when logging out
@@ -37,7 +34,4 @@ class SharedPrefManager(private val context: Context) {
         sharedPreferences.edit().clear().apply()
     }
 
-    fun saveUserData(email: String, name: String, password: String, contactNumber: String) {
-
-    }
 }

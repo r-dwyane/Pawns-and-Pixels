@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/page_background"
+    tools:context=".account.UpdateDetails">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="25dp">
+
+            <ImageView
+                android:id="@+id/update_back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/back_button"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Update Details"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:fontFamily="@font/readex_pro"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/dark_bg"
+            android:layout_margin="10dp"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="Name *"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:fontFamily="@font/redhatdisplay_regular"
+                android:textStyle="bold"
+                />
+
+            <EditText
+                android:id="@+id/updateName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textfield_selector"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:paddingStart="25dp"
+                android:paddingEnd="25dp"
+                android:fontFamily="@font/redhatdisplay_regular"
+                android:text=""
+                android:textSize="14sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:text="Email *"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:fontFamily="@font/redhatdisplay_regular"
+                android:textStyle="bold"
+                />
+
+            <EditText
+                android:id="@+id/updateEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textfield_selector"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:paddingStart="25dp"
+                android:paddingEnd="25dp"
+                android:fontFamily="@font/redhatdisplay_regular"
+                android:text=""
+                android:textSize="14sp"/>
+
+            <Button
+                android:id="@+id/updateButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_selector"
+                android:text="Save"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:fontFamily="@font/readex_pro"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:text="Forgot Password?"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:fontFamily="@font/redhatdisplay_regular"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/resetPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_gravity="center"
+                android:text="Reset Password"
+                android:textColor="@color/yellow"
+                android:fontFamily="@font/syne_bold"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/deleteAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Delete Account"
+            android:textSize="14sp"
+            android:fontFamily="@font/syne_bold"
+            android:textColor="#F21C1C"
+            app:backgroundTint="#232323"
+            android:padding="20dp"/>
+    </LinearLayout>
+
+
+</FrameLayout>

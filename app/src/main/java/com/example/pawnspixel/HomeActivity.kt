@@ -1,9 +1,11 @@
 package com.example.pawnspixel
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.TypedValue
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -23,6 +25,22 @@ class HomeActivity : AppCompatActivity() {
             insets
         }
         setUpTabBar()
+        val sharedPrefManager = SharedPrefManager(this)
+
+        val email = sharedPrefManager.getUserEmail()
+        val name = sharedPrefManager.getUserName()
+        val id = sharedPrefManager.getUserId()
+
+        if (email != null && name != null && id != null) {
+            SessionManager.email = email
+            SessionManager.name = name
+            SessionManager.userId = id
+        }
+        else if (email == null && name == null && id == null) {
+            val intent = Intent(this, StartActivity::class.java)
+            startActivity(intent)
+            Toast.makeText(this, "Session Expired", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun setUpTabBar() {

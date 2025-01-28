@@ -4,17 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/page_background"
-    tools:context=".games.XboxGames">
+    tools:context=".account.TermsAndConditions">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/border_white"
         android:orientation="horizontal"
-        android:padding="15dp">
+        android:padding="25dp">
 
         <ImageView
-            android:id="@+id/backHome3"
+            android:id="@+id/backAccount2"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/back_button"
@@ -25,13 +24,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Xbox Games"
+            android:text="Terms and Conditions"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:fontFamily="@font/readex_pro"
             android:textStyle="bold"
             android:layout_gravity="center"
             android:layout_marginStart="20dp"
             />
+
     </FrameLayout>
+
 </FrameLayout>

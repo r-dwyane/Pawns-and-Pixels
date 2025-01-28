@@ -61,6 +61,60 @@
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_right" />
     </fragment>
+    <fragment
+        android:id="@+id/account2"
+        android:name="com.example.pawnspixel.account.Account"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_account2_to_updateDetails"
+            app:destination="@id/updateDetails" />
+        <action
+            android:id="@+id/action_account2_to_termsAndConditions"
+            app:destination="@id/termsAndConditions" />
+        <action
+            android:id="@+id/action_account2_to_privacyPolicy"
+            app:destination="@id/privacyPolicy" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateDetails"
+        android:name="com.example.pawnspixel.account.UpdateDetails"
+        android:label="fragment_update_details"
+        tools:layout="@layout/fragment_update_details" >
+        <action
+            android:id="@+id/action_updateDetails_to_account2"
+            app:destination="@id/account2" />
+        <action
+            android:id="@+id/action_updateDetails_to_changePassword"
+            app:destination="@id/changePassword" />
+    </fragment>
+    <fragment
+        android:id="@+id/termsAndConditions"
+        android:name="com.example.pawnspixel.account.TermsAndConditions"
+        android:label="fragment_terms_and_conditions"
+        tools:layout="@layout/fragment_terms_and_conditions" >
+        <action
+            android:id="@+id/action_termsAndConditions_to_account2"
+            app:destination="@id/account2" />
+    </fragment>
+    <fragment
+        android:id="@+id/privacyPolicy"
+        android:name="com.example.pawnspixel.account.PrivacyPolicy"
+        android:label="fragment_privacy_policy"
+        tools:layout="@layout/fragment_privacy_policy" >
+        <action
+            android:id="@+id/action_privacyPolicy_to_account2"
+            app:destination="@id/account2" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePassword"
+        android:name="com.example.pawnspixel.account.ChangePassword"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" >
+        <action
+            android:id="@+id/action_changePassword_to_updateDetails"
+            app:destination="@id/updateDetails" />
+    </fragment>
 
 
 </navigation>

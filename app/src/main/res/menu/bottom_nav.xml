@@ -9,5 +9,5 @@
         android:icon="@drawable/reservations_icon"/>
     <item android:title="Account"
         android:id="@+id/account"
-        android:icon="@drawable/account_icon"/>
+        android:icon="@drawable/account"/>
 </menu>

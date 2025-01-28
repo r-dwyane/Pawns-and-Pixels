@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.pawnspixel.R
 
@@ -14,8 +16,14 @@ class NintendoSwitchGames : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_nintendo_switch_games, container, false)
+        val view = inflater.inflate(R.layout.fragment_nintendo_switch_games, container, false)
+
+        val backButton = view?.findViewById<ImageView>(R.id.backHome1)
+        backButton?.setOnClickListener {
+            activity?.findViewById<View>(R.id.nav_host_fragment)?.visibility = View.GONE
+            parentFragmentManager.popBackStack()
+        }
+        return view
     }
 
 }

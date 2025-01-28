@@ -71,7 +71,7 @@ class CustomerSignUpFragment : BottomSheetDialogFragment() {
                                     firestore.collection("users").document(userId).set(user)
                                         .addOnSuccessListener {
                                             Toast.makeText(requireContext(), "User registered successfully", Toast.LENGTH_SHORT).show()
-                                            sharedPrefManager.saveUserData(email, name, password, contactNumber, userId)
+                                            sharedPrefManager.saveUserData(email, name, contactNumber, userId)
 
                                             val intent2 = Intent(requireContext(), HomeActivity::class.java)
                                             startActivity(intent2)

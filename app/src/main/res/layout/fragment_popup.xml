@@ -12,19 +12,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingStart="50dp"
         android:paddingTop="35dp"
-        android:paddingBottom="35dp"
-        android:paddingStart="75dp"
-        android:paddingEnd="75dp"
-        >
+        android:paddingEnd="50dp"
+        android:paddingBottom="35dp">
 
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/red_hat_display_bold"
             android:text="Confirm Sign Out"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +36,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Cancel"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/confirm"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <Button
@@ -44,10 +45,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
             android:text="Confirm"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cancel"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
