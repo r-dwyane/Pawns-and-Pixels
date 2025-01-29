@@ -24,6 +24,18 @@ class SharedPrefManager(private val context: Context) {
         editor.apply()
     }
 
+    fun setUserEmail(email: String){
+        val editor = sharedPreferences.edit()
+        editor.putString(USER_EMAIL, email)
+        editor.apply()
+    }
+
+    fun setUserName(name: String){
+        val editor = sharedPreferences.edit()
+        editor.putString(USER_NAME, name)
+        editor.apply()
+    }
+
     fun getUserEmail(): String? = sharedPreferences.getString(USER_EMAIL, null)
     fun getUserNumber(): String? = sharedPreferences.getString(USER_CONTACT, null)
     fun getUserName(): String? = sharedPreferences.getString(USER_NAME, null)

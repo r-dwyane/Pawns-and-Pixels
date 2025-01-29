@@ -5,8 +5,27 @@
     android:id="@+id/admin_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@null"
+    app:backgroundTint="@null"
     tools:context=".authentication.CustomerSignUpFragment">
+
+    <RelativeLayout
+        android:id="@+id/progressContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:background="#66F21B5C"
+        android:elevation="9999dp">
+
+        <ImageView
+            android:id="@+id/progressImage3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/logo_gif"
+            android:elevation="10000dp" />
+    </RelativeLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"

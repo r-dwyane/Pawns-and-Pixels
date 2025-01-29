@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
 import com.example.pawnspixel.HomeActivity
@@ -20,12 +21,17 @@ import com.google.firebase.firestore.FirebaseFirestore
 class CustomerSignInFragment : BottomSheetDialogFragment() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var sharedPrefManager: SharedPrefManager
+    private lateinit var progressContainer: RelativeLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_customer_sign_in, container, false)
+        val view = inflater.inflate(R.layout.fragment_customer_sign_in, container, false)
+
+        progressContainer = view.findViewById(R.id.progressContainer3)
+
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -54,7 +60,11 @@ class CustomerSignInFragment : BottomSheetDialogFragment() {
             val password = view.findViewById<EditText>(R.id.password_field).text.toString()
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
+                progressContainer.visibility = View.VISIBLE
+
                 firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
+                    progressContainer.visibility = View.GONE
+
                     if (it.isSuccessful) {
                         fetchUserDetails(email)
                     } else {
@@ -79,10 +89,8 @@ class CustomerSignInFragment : BottomSheetDialogFragment() {
                     val contactNumber = document.getString("contact_number") ?: "Not Available"
                     val userId = document.id
 
-                    // Save user data to SharedPreferences
                     sharedPrefManager.saveUserData(email, name, contactNumber, userId)
 
-                    // Update session manager
                     SessionManager.userId = userId
                     SessionManager.email = email
                     SessionManager.name = name

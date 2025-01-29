@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
 import com.example.pawnspixel.HomeActivity
@@ -15,17 +16,23 @@ import com.example.pawnspixel.SharedPrefManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import java.util.logging.Handler
 
 class CustomerSignUpFragment : BottomSheetDialogFragment() {
 
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
+    private lateinit var progressContainer: RelativeLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_customer_sign_up, container, false)
+        val view = inflater.inflate(R.layout.fragment_customer_sign_up, container, false)
+
+        progressContainer = view.findViewById<RelativeLayout>(R.id.progressContainer)
+
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,6 +47,7 @@ class CustomerSignUpFragment : BottomSheetDialogFragment() {
             dismiss()
             val fragment2 = CustomerSignInFragment()
             fragment2.show(parentFragmentManager, "Android Center")
+
         }
 
         val emailField = view.findViewById<EditText>(R.id.email)
@@ -55,6 +63,8 @@ class CustomerSignUpFragment : BottomSheetDialogFragment() {
             val password = passwordField.text.toString()
             val confirmPassword = confirmPasswordField.text.toString()
             val contactNumber = contactField.text.toString()
+
+            progressContainer.visibility = View.VISIBLE
 
             if (email.isNotEmpty() && name.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty() && contactNumber.isNotEmpty()) {
                 if (password == confirmPassword) {
@@ -74,6 +84,7 @@ class CustomerSignUpFragment : BottomSheetDialogFragment() {
                                             sharedPrefManager.saveUserData(email, name, contactNumber, userId)
 
                                             val intent2 = Intent(requireContext(), HomeActivity::class.java)
+                                            progressContainer.visibility = View.GONE
                                             startActivity(intent2)
                                             requireActivity().finish()
                                         }

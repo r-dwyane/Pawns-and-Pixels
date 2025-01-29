@@ -59,4 +59,5 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.android.gif.drawable)
+    implementation(libs.androidx.swiperefreshlayout)
 }

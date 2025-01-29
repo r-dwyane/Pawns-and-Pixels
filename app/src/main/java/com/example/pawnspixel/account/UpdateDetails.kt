@@ -1,6 +1,5 @@
 package com.example.pawnspixel.account
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
@@ -12,44 +11,58 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.RelativeLayout
 import com.example.pawnspixel.R
 import com.example.pawnspixel.SessionManager
 import com.example.pawnspixel.SharedPrefManager
 import com.example.pawnspixel.StartActivity
-import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.firestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class UpdateDetails : Fragment() {
+    private var firestore = FirebaseFirestore.getInstance()
+    private lateinit var emailText: EditText
+    private lateinit var nameText: EditText
+    private lateinit var sharedPrefManager: SharedPrefManager
+    private lateinit var progressContainer: RelativeLayout
+    private lateinit var progressBar: ImageView
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_update_details, container, false)
 
-        val sharedPrefManager = SharedPrefManager(requireContext())
-
         val button = view?.findViewById<ImageView>(R.id.update_back)
-        val emailText = view?.findViewById<EditText>(R.id.updateEmail)
-        val nameText = view?.findViewById<EditText>(R.id.updateName)
-        val forgotPassword = view?.findViewById<TextView>(R.id.resetPassword)
-        val save = view?.findViewById<Button>(R.id.updateButton)
+        emailText = view?.findViewById(R.id.updateEmail)!!
+        nameText = view.findViewById(R.id.updateName)!!
+        val forgotPassword = view.findViewById<TextView>(R.id.resetPassword)
+        val save = view.findViewById<Button>(R.id.updateButton)
 
-        emailText?.setText(SessionManager.email.toString())
-        nameText?.setText(SessionManager.name.toString())
+        sharedPrefManager = SharedPrefManager(requireContext())
 
-        val email = emailText?.text.toString()
-        val name = nameText?.text.toString()
+        emailText.setText(SessionManager.email ?: "")
+        nameText.setText(SessionManager.name ?: "")
+
+        progressContainer = view.findViewById(R.id.progressContainer)
+        progressBar = view.findViewById<ImageView>(R.id.progressImage)
+
         button?.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
 
         forgotPassword?.setOnClickListener {
-            if (email.isNotEmpty()) {
+            val emailInput = emailText.text.toString().trim()
+
+            if (emailInput.isNotEmpty()) {
                 val auth = FirebaseAuth.getInstance()
-                auth.sendPasswordResetEmail(email)
+                auth.sendPasswordResetEmail(emailInput)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             Toast.makeText(
@@ -68,108 +81,96 @@ class UpdateDetails : Fragment() {
         }
 
         save?.setOnClickListener {
-            updateEmail(email)
-            updateName(name)
-            parentFragmentManager.popBackStack()
+            val nameInput = nameText.text?.toString()?.trim() ?: ""
+            val emailInput = emailText.text?.toString()?.trim() ?: ""
+
+            Log.d("UpdateDetails", "Email: $emailInput, Name: $nameInput")
+
+            if (emailInput.isEmpty()) {
+                emailText.error = "Email cannot be empty"
+                return@setOnClickListener
+            }
+
+            if (nameInput.isEmpty()) {
+                nameText.error = "Name cannot be empty"
+                return@setOnClickListener
+            }
+
+            updateEmail(emailInput, nameInput)
         }
 
         return view
     }
 
-    private fun updateEmail(newEmail: String) {
+    private fun updateEmail(newEmail: String, newName: String) {
         val user = FirebaseAuth.getInstance().currentUser
-        val firestore = FirebaseFirestore.getInstance()
-        val sharedPrefManager = SharedPrefManager(requireContext())
 
-        user?.let { currentUser ->
-            promptForPassword { password ->
-                if (password.isNullOrEmpty()) {
-                    Toast.makeText(requireContext(), "Password cannot be empty", Toast.LENGTH_SHORT).show()
-                    return@promptForPassword
-                }
+        // Show the ProgressBar with dark translucent background
+        progressContainer.visibility = View.VISIBLE
 
-                val credential = EmailAuthProvider.getCredential(SessionManager.email.toString(), password)
+        user?.verifyBeforeUpdateEmail(newEmail)?.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Toast.makeText(requireContext(), "Please check your email to verify the update", Toast.LENGTH_SHORT).show()
 
-                currentUser.reauthenticate(credential).addOnCompleteListener { reAuthTask ->
-                    if (reAuthTask.isSuccessful) {
-                        currentUser.updateEmail(newEmail).addOnCompleteListener { task ->
-                            if (task.isSuccessful) {
-                                Log.d("Firebase", "Email updated successfully")
-
-                                // Update session
-                                SessionManager.email = newEmail
-                                sharedPrefManager.saveUserData(newEmail, SessionManager.name.toString(), SessionManager.contactNumber.toString(), currentUser.uid.toString())
-
-                                // Update email in Firestore
-                                val userId = currentUser.uid
-                                val userRef = firestore.collection("users").document(userId)
-                                userRef.update("email", newEmail)
-                                    .addOnSuccessListener {
-                                        Log.d("Firestore", "Email updated in Firestore")
-                                    }
-                                    .addOnFailureListener { exception ->
-                                        Log.e("Firestore", "Error updating email in Firestore", exception)
-                                        Toast.makeText(requireContext(), "Failed to update email in Firestore", Toast.LENGTH_SHORT).show()
-                                    }
-
-                            } else {
-                                Log.e("Firebase", "Error updating email in Firebase", task.exception)
-                                Toast.makeText(requireContext(), "Failed to update email in Firebase", Toast.LENGTH_SHORT).show()
-                            }
+                user.reload().addOnCompleteListener { reloadTask ->
+                    if (reloadTask.isSuccessful) {
+                        if (user.isEmailVerified) {
+                            updateFirestore(newEmail, newName)
+                        } else {
+                            Toast.makeText(requireContext(), "Email not verified yet", Toast.LENGTH_SHORT).show()
                         }
                     } else {
-                        Log.e("Firebase", "Reauthentication failed", reAuthTask.exception)
-                        Toast.makeText(requireContext(), "Reauthentication failed. Please check your password.", Toast.LENGTH_SHORT).show()
+                        Log.e("Error:", reloadTask.exception?.message ?: "Reload failed")
                     }
-                }
 
+                    progressContainer.visibility = View.GONE
+                }
+            } else {
+                Log.e("Error:", task.exception?.message ?: "Email update failed")
+
+                FirebaseAuth.getInstance().signOut()
+                sharedPrefManager.clearUserData()
+                SessionManager.clearSession()
+
+                val intent = Intent(requireActivity(), StartActivity::class.java)
+                startActivity(intent)
+                Toast.makeText(requireContext(), "Session Expired", Toast.LENGTH_SHORT).show()
+                requireActivity().finish()
+
+                Toast.makeText(requireContext(), "Please sign in again.", Toast.LENGTH_SHORT).show()
+
+                progressContainer.visibility = View.GONE
             }
         }
     }
 
-    private fun promptForPassword(callback: (String) -> Unit) {
-        val passwordEditText = EditText(requireContext())
-        passwordEditText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-
-        val dialog = AlertDialog.Builder(requireContext())
-            .setTitle("Enter Password")
-            .setView(passwordEditText)
-            .setPositiveButton("OK") { _, _ ->
-                callback(passwordEditText.text.toString())
-            }
-            .setNegativeButton("Cancel") { dialog, _ ->
-                callback("")
-                dialog.cancel()
-            }
-            .create()
-
-        dialog.show()
-    }
-
-
-    private fun updateName(newName: String) {
-        val user = FirebaseAuth.getInstance().currentUser
-        val firestore = FirebaseFirestore.getInstance()
-        val sharedPrefManager = SharedPrefManager(requireContext())
-
-        user?.let {
-            val userId = it.uid
+    private fun updateFirestore(newEmail: String, newName: String) {
+        val userId = FirebaseAuth.getInstance().currentUser?.uid
+        if (userId != null) {
             val userRef = firestore.collection("users").document(userId)
-            val userUpdates = hashMapOf("name" to newName)
 
-            userRef.update(userUpdates as Map<String, String>)
-                .addOnSuccessListener {
-                    Log.d("Firestore", "User name updated in Firestore")
+            val updateMap = mapOf(
+                "name" to newName,
+                "email" to newEmail
+            )
 
+            userRef.update(updateMap).addOnCompleteListener { task ->
+                progressContainer.visibility = View.GONE
+
+                if (task.isSuccessful) {
+                    SessionManager.email = newEmail
                     SessionManager.name = newName
-                    sharedPrefManager.saveUserData(SessionManager.email.toString(), newName, SessionManager.contactNumber.toString(), userId)
+                    sharedPrefManager.setUserEmail(newEmail)
+                    sharedPrefManager.setUserName(newName)
 
+                    Toast.makeText(requireContext(), "User details updated successfully", Toast.LENGTH_SHORT).show()
+                } else {
+                    Log.e("Firestore Update", "Failed to update user data: ${task.exception}")
                 }
-                .addOnFailureListener { exception ->
-                    Log.e("Firestore", "Error updating user name", exception)
-                    Toast.makeText(requireContext(), "Failed to update name", Toast.LENGTH_SHORT).show()
-                }
+            }
+        } else {
+            Log.e("Firestore", "User not authenticated")
+            progressContainer.visibility = View.GONE
         }
     }
-
 }

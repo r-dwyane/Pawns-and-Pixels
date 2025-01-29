@@ -7,7 +7,28 @@
     android:background="@drawable/page_background"
     tools:context=".account.UpdateDetails">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/progressContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#66F21B5C"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:elevation="9998dp">
+
+        <ImageView
+            android:id="@+id/progressImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo_gif"
+            android:elevation="9999dp"
+            android:layout_centerInParent="true"
+            android:alpha="1" />
+
+    </RelativeLayout>
+
+<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
