@@ -23,7 +23,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_centerInParent="true"
-            android:src="@drawable/logo_gif"
+            android:src="@drawable/logo_clear"
             android:elevation="10000dp" />
     </RelativeLayout>
 

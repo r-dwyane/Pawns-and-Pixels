@@ -28,7 +28,6 @@ class CustomerSignInFragment : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_customer_sign_in, container, false)
-
         progressContainer = view.findViewById(R.id.progressContainer3)
 
         return view

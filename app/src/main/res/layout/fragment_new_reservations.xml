@@ -5,8 +5,27 @@
     android:id="@+id/admin_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@null"
+    app:backgroundTint="@null"
     tools:context=".authentication.AdminSignInFragment">
+
+    <RelativeLayout
+        android:id="@+id/progressContainerNew"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:background="#66F21B5C"
+        android:elevation="9999dp">
+
+        <ImageView
+            android:id="@+id/progressImage3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/logo_clear"
+            android:elevation="10000dp" />
+    </RelativeLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +36,9 @@
         android:paddingTop="30dp"
         android:paddingBottom="30dp"
         android:paddingStart="30dp"
-        android:paddingEnd="30dp">
+        android:paddingEnd="30dp"
+        app:backgroundTint="@null"
+        >
 
         <TextView
             android:layout_width="wrap_content"
