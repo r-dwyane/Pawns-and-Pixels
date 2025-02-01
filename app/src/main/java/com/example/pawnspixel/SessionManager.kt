@@ -13,6 +13,4 @@ object SessionManager {
         contactNumber = null
         password = null
     }
-
-
 }

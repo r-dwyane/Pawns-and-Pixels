@@ -13,5 +13,6 @@
     </string>
 
     <string name="nintendo_text">Nintendo Switch\nGame Room</string>
+    <string name="terms_condition">By clicking <b>confirm</b>, you agree to the\n<b><i>Terms and Conditions.</i></b></string>
 
 </resources>

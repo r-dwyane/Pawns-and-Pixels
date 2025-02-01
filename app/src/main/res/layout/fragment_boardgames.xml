@@ -10,8 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@drawable/border_white"
-        android:padding="15dp">
+        android:padding="20dp">
 
         <ImageView
             android:id="@+id/backHome2"
@@ -27,7 +26,7 @@
             android:layout_height="wrap_content"
             android:text="Board Games"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:fontFamily="@font/readex_pro"
             android:textStyle="bold"
             android:layout_gravity="center"

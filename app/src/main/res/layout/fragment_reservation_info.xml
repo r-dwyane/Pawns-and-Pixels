@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/page_background"
+    android:elevation="9999dp"
+    tools:context=".reservations.ReservationInfo">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/backHome4"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/back_button"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date and Time"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:fontFamily="@font/readex_pro"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/roomText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Room:"
+            android:fontFamily="@font/redhatdisplay_bold"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginTop="20dp"/>
+
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Available Time Slots:"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/redhatdisplay_bold"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start Time:"
+            android:textSize="16sp"
+            android:paddingTop="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/redhatdisplay_regular"/>
+        <Spinner
+            android:id="@+id/spinnerStartTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:padding="8dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/redhatdisplay_regular"
+            android:background="@drawable/textfield_selector"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="End Time:"
+            android:textSize="16sp"
+            android:paddingTop="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/redhatdisplay_regular"/>
+        <Spinner
+            android:id="@+id/spinnerEndTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:padding="8dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/redhatdisplay_regular"
+            android:background="@drawable/textfield_selector"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of Players:"
+            android:textSize="16sp"
+            android:paddingTop="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/redhatdisplay_regular"/>
+        <EditText
+            android:id="@+id/num_players"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/redhatdisplay_regular"
+            android:background="@drawable/textfield_selector"/>
+
+        <Button
+            android:id="@+id/reserve_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:text="Reserve"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/readexpro_semibold"
+            android:background="@drawable/button_selector"
+            app:backgroundTint="@null"/>
+
+    </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

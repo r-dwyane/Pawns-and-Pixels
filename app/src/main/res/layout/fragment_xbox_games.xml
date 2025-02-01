@@ -9,9 +9,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/border_white"
         android:orientation="horizontal"
-        android:padding="15dp">
+        android:padding="20dp">
 
         <ImageView
             android:id="@+id/backHome3"
@@ -27,7 +26,7 @@
             android:layout_height="wrap_content"
             android:text="Xbox Games"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:fontFamily="@font/readex_pro"
             android:textStyle="bold"
             android:layout_gravity="center"
