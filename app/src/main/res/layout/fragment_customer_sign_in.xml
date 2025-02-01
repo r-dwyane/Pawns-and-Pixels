@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:background="@null"
     app:backgroundTint="@null"
+    android:elevation="0dp"
     tools:context=".authentication.CustomerSignInFragment">
 
     <RelativeLayout

@@ -144,6 +144,14 @@
             android:id="@+id/action_reservationSummary_to_reservationInfo"
             app:destination="@id/reservationInfo" />
     </fragment>
+    <dialog
+        android:id="@+id/reservationPopup"
+        android:name="com.example.pawnspixel.reservations.ReservationPopup"
+        android:label="ReservationPopup" >
+        <action
+            android:id="@+id/action_reservationPopup_to_home"
+            app:destination="@id/home" />
+    </dialog>
 
 
 </navigation>

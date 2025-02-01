@@ -1,6 +1,9 @@
 package com.example.pawnspixel.reservations
 
 import android.annotation.SuppressLint
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,8 +15,12 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
 import com.example.pawnspixel.GetDetails
+import com.example.pawnspixel.Home
 import com.example.pawnspixel.R
 import com.example.pawnspixel.SessionManager
+import com.example.pawnspixel.authentication.CustomerSignInFragment
+import com.example.pawnspixel.games.BoardGames
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -28,7 +35,9 @@ class ReservationSummary : Fragment() {
     private lateinit var name: TextView
     private lateinit var email: TextView
     private lateinit var confirm: Button
+    private lateinit var backToHome: Button
     private lateinit var progressContainer: RelativeLayout
+    private lateinit var popup: Dialog
 
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
@@ -45,6 +54,8 @@ class ReservationSummary : Fragment() {
         email = view.findViewById(R.id.customerEmail)
         confirm = view.findViewById(R.id.confirm)
         progressContainer = view.findViewById(R.id.progressContainerSummary)
+
+        popup = Dialog(requireContext())
 
         val inputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val formatDate = GetDetails.date?.let { inputFormat.parse(it) }
@@ -74,9 +85,18 @@ class ReservationSummary : Fragment() {
     private fun confirmReservation() {
         progressContainer.visibility = View.VISIBLE
         val db = FirebaseFirestore.getInstance()
+
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser == null) {
+            progressContainer.visibility = View.GONE
+            Toast.makeText(context, "Please sign in to make a reservation", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         val dateFormat = SimpleDateFormat("yyyy-MM-dd 'at' hh:mm:ss a", Locale.getDefault())
         val formattedTimestamp = dateFormat.format(Date())
 
+        // Ensure GetDetails and SessionManager are not null before using them
         val bookingData = hashMapOf(
             "userId" to SessionManager.userId,
             "room" to GetDetails.room,
@@ -87,15 +107,20 @@ class ReservationSummary : Fragment() {
             "createdAt" to formattedTimestamp,
             "players" to GetDetails.players
         )
+
         db.collection("bookings")
             .add(bookingData)
             .addOnSuccessListener {
                 progressContainer.visibility = View.GONE
-                Toast.makeText(requireContext(), "Reservation Requested", Toast.LENGTH_SHORT).show()
+                val popupFragment = ReservationPopup()
+                popupFragment.show(parentFragmentManager, "ReservationPopup")
             }
             .addOnFailureListener { e ->
                 progressContainer.visibility = View.GONE
                 Log.w("Firestore", "Error adding booking", e)
+                Toast.makeText(context, "Failed to add booking. Try again later.", Toast.LENGTH_SHORT).show()
             }
     }
+
+
 }
