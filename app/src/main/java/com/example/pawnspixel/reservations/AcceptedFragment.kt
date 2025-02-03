@@ -40,20 +40,32 @@ class AcceptedFragment : Fragment() {
         adapter = ReservationsAdapter(reservationList, object : ReservationsAdapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
                 val clickedReservation = reservationList[position]
-                val details = """
-                    Status: ${clickedReservation.status}
-                    Room: ${clickedReservation.room}
-                    Date: ${clickedReservation.date}
-                    Start Time: ${clickedReservation.startTime}
-                    End Time: ${clickedReservation.endTime}
-                    Reservation ID: ${clickedReservation.reservationId}
-                    Number of Players: ${clickedReservation.numberOfPlayers}
-                    Created At: ${clickedReservation.createdAt}
-                """.trimIndent()
-                Toast.makeText(requireContext(), details, Toast.LENGTH_LONG).show()
+
+                val bundle = Bundle().apply {
+                    putString("status", clickedReservation.status)
+                    putString("room", clickedReservation.room)
+                    putString("date", clickedReservation.date)
+                    putString("startTime", clickedReservation.startTime)
+                    putString("endTime", clickedReservation.endTime)
+                    putString("reservationId", clickedReservation.reservationId)
+                    putString("numberOfPlayers", clickedReservation.players)
+                    putString("createdAt", clickedReservation.createdAt)
+                }
+
+                val detailsFragment = ReservationDetails()
+                detailsFragment.arguments = bundle
+                parentFragmentManager.beginTransaction()
+                    .setCustomAnimations(
+                        R.anim.slide_in_left,
+                        R.anim.slide_out_right,
+                        R.anim.slide_in_left,
+                        R.anim.slide_out_right
+                    )
+                    .replace(R.id.nav_host_fragment, detailsFragment)
+                    .addToBackStack(null)
+                    .commit()
             }
         })
-
         recyclerView.adapter = adapter
 
         fetchPendingReservations()
@@ -87,6 +99,7 @@ class AcceptedFragment : Fragment() {
                     adapter.notifyDataSetChanged()
                 } else {
                     defaultText.visibility = View.VISIBLE
+                    adapter.notifyDataSetChanged()
                 }
 
             }

@@ -152,6 +152,24 @@
             android:id="@+id/action_reservationPopup_to_home"
             app:destination="@id/home" />
     </dialog>
+    <fragment
+        android:id="@+id/pendingFragment"
+        android:name="com.example.pawnspixel.reservations.PendingFragment"
+        android:label="fragment_pending"
+        tools:layout="@layout/fragment_pending" >
+        <action
+            android:id="@+id/action_pendingFragment_to_reservationDetails"
+            app:destination="@id/reservationDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/reservationDetails"
+        android:name="com.example.pawnspixel.reservations.ReservationDetails"
+        android:label="fragment_reservation_details"
+        tools:layout="@layout/fragment_reservation_details" >
+        <action
+            android:id="@+id/action_reservationDetails_to_pendingFragment"
+            app:destination="@id/pendingFragment" />
+    </fragment>
 
 
 </navigation>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/page_background"
+    tools:context=".reservations.ReservationDetails">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/backHome82"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/back_button"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reservation Details"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:fontFamily="@font/readex_pro"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/details_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:textSize="18sp"
+            android:text="Status"
+            android:textColor="@color/white"
+            android:fontFamily="@font/redhatdisplay_bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="vertical"
+            android:background="@drawable/dark_bg"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/details_reservation_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:textSize="14sp"
+                android:text="ID"
+                android:textColor="@color/white"
+                android:fontFamily="@font/redhatdisplay_bold"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:src="@drawable/content_divider"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"/>
+
+            <TextView
+                android:id="@+id/details_room"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/redhatdisplay_regular"
+                android:text="Room"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/details_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/redhatdisplay_regular"
+                android:text="Date"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/details_start_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/redhatdisplay_regular"
+                android:text="Start time"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/details_end_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/redhatdisplay_regular"
+                android:text="End time"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/details_players"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/redhatdisplay_regular"
+                android:text="Players"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/details_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/redhatdisplay_regular"
+                android:text="Name"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/details_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/redhatdisplay_regular"
+                android:text="Email"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+
+            <TextView android:id="@+id/details_created_at"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="15dp"
+                android:alpha="0.75"
+                android:textSize="12sp"
+                android:text="Time stamp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/redhatdisplay_regular"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/cancelReservation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel Reservation"
+            android:textSize="17sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/readexpro_semibold"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/button_selector"
+            app:backgroundTint="@null"/>
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

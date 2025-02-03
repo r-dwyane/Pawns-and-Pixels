@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pawnspixel.R
+import com.example.pawnspixel.games.BoardGames
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
@@ -40,19 +41,33 @@ class PendingFragment : Fragment() {
         adapter = ReservationsAdapter(reservationList, object : ReservationsAdapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
                 val clickedReservation = reservationList[position]
-                val details = """
-                    Status: ${clickedReservation.status}
-                    Room: ${clickedReservation.room}
-                    Date: ${clickedReservation.date}
-                    Start Time: ${clickedReservation.startTime}
-                    End Time: ${clickedReservation.endTime}
-                    Reservation ID: ${clickedReservation.reservationId}
-                    Number of Players: ${clickedReservation.numberOfPlayers}
-                    Created At: ${clickedReservation.createdAt}
-                """.trimIndent()
-                Toast.makeText(requireContext(), details, Toast.LENGTH_LONG).show()
+
+                val bundle = Bundle().apply {
+                    putString("status", clickedReservation.status)
+                    putString("room", clickedReservation.room)
+                    putString("date", formatDate(clickedReservation.date))
+                    putString("startTime", clickedReservation.startTime)
+                    putString("endTime", clickedReservation.endTime)
+                    putString("reservationId", clickedReservation.reservationId)
+                    putString("numberOfPlayers", clickedReservation.players)
+                    putString("createdAt", clickedReservation.createdAt)
+                }
+
+                val detailsFragment = ReservationDetails()
+                detailsFragment.arguments = bundle
+                parentFragmentManager.beginTransaction()
+                    .setCustomAnimations(
+                        R.anim.slide_in_left,
+                        R.anim.slide_out_right,
+                        R.anim.slide_in_left,
+                        R.anim.slide_out_right
+                    )
+                    .replace(R.id.nav_host_fragment, detailsFragment)
+                    .addToBackStack(null)
+                    .commit()
             }
         })
+
 
         recyclerView.adapter = adapter
 
@@ -86,10 +101,23 @@ class PendingFragment : Fragment() {
 
                     adapter.notifyDataSetChanged()
                 } else {
+                    adapter.notifyDataSetChanged()
                     defaultText.visibility = View.VISIBLE
                 }
 
             }
+    }
+
+    private fun formatDate(dateString: String): String {
+        return try {
+            val inputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+            val outputFormat = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
+
+            val date = inputFormat.parse(dateString)
+            outputFormat.format(date ?: return dateString)
+        } catch (e: Exception) {
+            dateString
+        }
     }
 
 

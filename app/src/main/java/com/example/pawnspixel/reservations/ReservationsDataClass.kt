@@ -7,6 +7,6 @@ data class ReservationsDataClass(
     val date: String = "",
     val startTime: String = "",
     val endTime: String = "",
-    val numberOfPlayers: Int = 0,
+    val players: String = "",
     val createdAt: String = ""
 )

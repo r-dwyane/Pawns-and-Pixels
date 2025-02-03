@@ -47,7 +47,7 @@ class DeclinedFragment : Fragment() {
                     Start Time: ${clickedReservation.startTime}
                     End Time: ${clickedReservation.endTime}
                     Reservation ID: ${clickedReservation.reservationId}
-                    Number of Players: ${clickedReservation.numberOfPlayers}
+                    Number of Players: ${clickedReservation.players}
                     Created At: ${clickedReservation.createdAt}
                 """.trimIndent()
                 Toast.makeText(requireContext(), details, Toast.LENGTH_LONG).show()
