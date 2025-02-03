@@ -37,18 +37,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Reservation Date"
-            android:textSize="12sp"
+            android:textSize="11sp"
             android:textColor="@color/white"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/redhatdisplay_regular"
             android:alpha="0.75"/>
     </LinearLayout>
+
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/chevron_left"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_gravity="end"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
-        />
+        android:src="@drawable/chevron_left" />
 </FrameLayout>

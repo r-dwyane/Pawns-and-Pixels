@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
+import com.example.pawnspixel.GetDetails
 import com.example.pawnspixel.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.firestore.FirebaseFirestore
@@ -49,7 +50,7 @@ class NewReservations : BottomSheetDialogFragment() {
         progressContainer = view.findViewById(R.id.progressContainerNew)
 
         fetchRoomStatuses()
-
+        GetDetails.clearSession()
         nintendoButton.setOnClickListener { roomName("nitendo") }
         privateButton.setOnClickListener { roomName("private_room") }
         pixelsButton1.setOnClickListener { roomName("pixels_gaming1") }
