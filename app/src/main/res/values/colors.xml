@@ -7,6 +7,9 @@
     <color name="pinkBg">#F21B5C</color>
     <color name="blueBg">#04064D</color>
 
+    <!--tab layout background-->
+    <color name="tabBg">#3327045E</color>
+
     <!--icons-->
     <color name="yellow">#F8CD40</color>
 

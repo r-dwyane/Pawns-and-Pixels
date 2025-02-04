@@ -5,8 +5,8 @@
         android:icon="@drawable/home_icon"/>
     <item android:title="Reservations"
         android:id="@+id/reservations"
-        android:icon="@drawable/reservations_icon"/>
-    <item android:title="Account"
-        android:id="@+id/account"
-        android:icon="@drawable/account"/>
+        android:icon="@drawable/resadmin"/>
+    <item android:title="CMS"
+        android:id="@+id/cms"
+        android:icon="@drawable/cms"/>
 </menu>
