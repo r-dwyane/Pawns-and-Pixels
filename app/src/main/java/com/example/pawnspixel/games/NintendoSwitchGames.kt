@@ -20,7 +20,6 @@ class NintendoSwitchGames : Fragment() {
 
         val backButton = view?.findViewById<ImageView>(R.id.backHome1)
         backButton?.setOnClickListener {
-            activity?.findViewById<View>(R.id.nav_host_fragment)?.visibility = View.GONE
             parentFragmentManager.popBackStack()
         }
         return view

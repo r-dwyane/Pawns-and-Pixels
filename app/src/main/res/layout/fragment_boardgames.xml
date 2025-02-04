@@ -14,10 +14,10 @@
 
         <ImageView
             android:id="@+id/backHome2"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:src="@drawable/back_button"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"/>
 
@@ -26,11 +26,10 @@
             android:layout_height="wrap_content"
             android:text="Board Games"
             android:textColor="@color/white"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:fontFamily="@font/readex_pro"
             android:textStyle="bold"
             android:layout_gravity="center"
-            android:layout_marginStart="20dp"
             />
 
     </FrameLayout>

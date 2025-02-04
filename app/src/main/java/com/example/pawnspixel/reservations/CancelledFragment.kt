@@ -52,7 +52,7 @@ class CancelledFragment : Fragment() {
                     putString("createdAt", clickedReservation.createdAt)
                 }
 
-                val detailsFragment = ReservationDetails()
+                val detailsFragment = OngoingDetails()
                 detailsFragment.arguments = bundle
                 parentFragmentManager.beginTransaction()
                     .setCustomAnimations(

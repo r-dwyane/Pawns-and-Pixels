@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -31,6 +32,7 @@ class ReservationDetails : Fragment() {
         val email: TextView = view.findViewById(R.id.details_email)
         val name: TextView = view.findViewById(R.id.details_name)
         val back: ImageView = view.findViewById(R.id.backHome82)
+        val cancel: Button = view.findViewById(R.id.cancelReservation)
 
         back.setOnClickListener{
             parentFragmentManager.popBackStack()
@@ -46,6 +48,17 @@ class ReservationDetails : Fragment() {
             createdAtText.text = "Created At: ${it.getString("createdAt")}"
             name.text = SessionManager.name
             email.text = SessionManager.email
+        }
+
+        cancel.setOnClickListener {
+            val reservationId = arguments?.getString("reservationId") ?: return@setOnClickListener
+
+            val cancelPopup = CancelPopup()
+            val args = Bundle()
+            args.putString("reservationId", reservationId)
+            cancelPopup.arguments = args
+
+            cancelPopup.show(parentFragmentManager, "CancelPopup")
         }
 
         return view

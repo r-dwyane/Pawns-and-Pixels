@@ -96,7 +96,6 @@ class ReservationSummary : Fragment() {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd 'at' hh:mm:ss a", Locale.getDefault())
         val formattedTimestamp = dateFormat.format(Date())
 
-        // Ensure GetDetails and SessionManager are not null before using them
         val bookingData = hashMapOf(
             "userId" to SessionManager.userId,
             "room" to GetDetails.room,

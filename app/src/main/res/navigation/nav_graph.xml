@@ -160,6 +160,12 @@
         <action
             android:id="@+id/action_pendingFragment_to_reservationDetails"
             app:destination="@id/reservationDetails" />
+        <action
+            android:id="@+id/action_pendingFragment_to_ongoingDetails"
+            app:destination="@id/ongoingDetails" />
+        <action
+            android:id="@+id/action_pendingFragment_to_declinedDetails"
+            app:destination="@id/declinedDetails" />
     </fragment>
     <fragment
         android:id="@+id/reservationDetails"
@@ -168,6 +174,24 @@
         tools:layout="@layout/fragment_reservation_details" >
         <action
             android:id="@+id/action_reservationDetails_to_pendingFragment"
+            app:destination="@id/pendingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ongoingDetails"
+        android:name="com.example.pawnspixel.reservations.OngoingDetails"
+        android:label="fragment_ongoing_details"
+        tools:layout="@layout/fragment_ongoing_details" >
+        <action
+            android:id="@+id/action_ongoingDetails_to_pendingFragment"
+            app:destination="@id/pendingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/declinedDetails"
+        android:name="com.example.pawnspixel.reservations.DeclinedDetails"
+        android:label="fragment_declined_details"
+        tools:layout="@layout/fragment_declined_details" >
+        <action
+            android:id="@+id/action_declinedDetails_to_pendingFragment"
             app:destination="@id/pendingFragment" />
     </fragment>
 
