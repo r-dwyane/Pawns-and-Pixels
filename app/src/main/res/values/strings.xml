@@ -14,5 +14,24 @@
 
     <string name="nintendo_text">Nintendo Switch\nGame Room</string>
     <string name="terms_condition">By clicking <b>confirm</b>, you agree to the\n<b><i>Terms and Conditions.</i></b></string>
+    <string name="total_bookings">Total bookings</string>
+    <string name="players">Players</string>
+    <string name="statsBtn">More about statistics</string>
+    <string name="statistics">Statistics</string>
+    <string name="nintendo_switch_game_room">Nintendo Switch Game Room</string>
+    <string name="pixels_gaming">Pixels Gaming</string>
+    <string name="billiard_table">Billiard Table</string>
+    <string name="private_room">Private Room</string>
+    <string name="user_feedback">User Feedback</string>
+    <string name="content_management">Content Management</string>
+    <string name="rooms_amp_equipments"><![CDATA[Rooms & Equipments]]></string>
+    <string name="admin_board_games">Board Games</string>
+    <string name="admin_rooms_amp_equipments"><![CDATA[Rooms & Equipments]]></string>
+    <string name="admin_nintendo_switch_game_room">Nintendo Switch Game Room</string>
+    <string name="description">Description</string>
+    <string name="sampledesc">Dive into an immersive gaming experience with our Nintendo Switch setup. Featuring a wide selection of multiplayer games, this room is great for gamers of all ages.</string>
+    <string name="add_description">Add description...</string>
+    <string name="status">Status</string>
+    <string name="update">Update</string>
 
 </resources>

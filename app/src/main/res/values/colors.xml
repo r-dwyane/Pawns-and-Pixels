@@ -24,6 +24,13 @@
     <color name="lightBlack">#232323</color>
     <color name="transparent">#00FFFFFF</color>
 
+    <!--  stats color bg  -->
+    <color name="statsColor">#4404187C</color>
+    <color name="statsGray">#B3B3B3</color>
+    <color name="totalBookings">#BEB2B2</color>
+    <color name="semitransparent">#20FFFFFF</color>
+    <color name="statsTabBg">#27045E80</color>
+
     <!--  Rhon Colors  -->
     <color name="hotPink">#FF166E</color>
     <color name="hotYellow">#FFC300</color>

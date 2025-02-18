@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/page_background"
+    tools:context=".admin.AdminStatisticsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/headerStatistics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="25dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/backBtnAdminStats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/admin_backbtn"
+                android:backgroundTint="@color/transparent"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:fontFamily="@font/readex_pro_medium"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:layout_marginStart="25dp"
+                android:text="@string/statistics"
+                android:textSize="20sp"/>
+
+            <ImageButton
+                android:id="@+id/filterBtnStats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/filter"
+                android:backgroundTint="@color/transparent"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/tab_background"
+                        android:backgroundTint="@color/color_item"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_gravity="center"
+                        app:tabGravity="center"
+                        app:tabIndicatorColor="@null"
+                        app:tabIndicatorHeight="0dp"
+                        app:tabMode="fixed"
+                        app:tabRippleColor="@null"
+                        app:tabTextColor="@color/color_item_bottom_nav">
+
+                        <com.google.android.material.tabs.TabItem
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week" />
+
+                        <com.google.android.material.tabs.TabItem
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Month" />
+
+                        <com.google.android.material.tabs.TabItem
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Year" />
+                    </com.google.android.material.tabs.TabLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:id="@+id/nintendoSGRStatsFrame"
+                            android:layout_width="match_parent"
+                            android:layout_height="143dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/stats_bg">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:layout_margin="15dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/nintendo_switch_game_room"
+                                    android:fontFamily="@font/red_hat_display_semibold"
+                                    android:textSize="18sp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/white"/>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal"
+                                    android:gravity="center">
+
+                                    <LinearLayout
+                                        android:id="@+id/leftNintendoStats"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical"
+                                        android:gravity="center"
+                                        android:layout_weight="1">
+
+                                        <TextView
+                                            android:id="@+id/nintendoBookingsStatsText"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/red_hat_display_bold"
+                                            android:text="60"
+                                            android:gravity="center"
+                                            android:textColor="@color/yellow"
+                                            android:textSize="32sp"/>
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_horizontal"
+                                            android:src="@drawable/bookings_stats" />
+                                    </LinearLayout>
+
+                                    <ImageView
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_margin="10dp"
+                                        android:src="@drawable/content_divider"/>
+
+                                    <LinearLayout
+                                        android:id="@+id/rightNintendoStats"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical"
+                                        android:gravity="center"
+                                        android:layout_weight="1">
+
+                                        <TextView
+                                            android:id="@+id/nintendoPlayersStatsText"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/red_hat_display_bold"
+                                            android:text="60"
+                                            android:gravity="center"
+                                            android:textColor="@color/yellow"
+                                            android:textSize="32sp"/>
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_horizontal"
+                                            android:src="@drawable/players_stats" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:id="@+id/pixelsGamingStatsFrame"
+                            android:layout_width="match_parent"
+                            android:layout_height="143dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/stats_bg"
+                            android:layout_marginTop="20dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:layout_margin="15dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/pixels_gaming"
+                                    android:fontFamily="@font/red_hat_display_semibold"
+                                    android:textSize="18sp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/white"/>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal"
+                                    android:gravity="center">
+
+                                    <LinearLayout
+                                        android:id="@+id/leftPixelsGamingStats"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical"
+                                        android:gravity="center"
+                                        android:layout_weight="1">
+
+                                        <TextView
+                                            android:id="@+id/pixelsGamingBookingsStatsText"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/red_hat_display_bold"
+                                            android:text="60"
+                                            android:gravity="center"
+                                            android:textColor="@color/yellow"
+                                            android:textSize="32sp"/>
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_horizontal"
+                                            android:src="@drawable/bookings_stats" />
+                                    </LinearLayout>
+
+                                    <ImageView
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_margin="10dp"
+                                        android:src="@drawable/content_divider"/>
+
+                                    <LinearLayout
+                                        android:id="@+id/rightPixelsGamingStats"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical"
+                                        android:gravity="center"
+                                        android:layout_weight="1">
+
+                                        <TextView
+                                            android:id="@+id/pixelsGamingPlayersStatsText"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/red_hat_display_bold"
+                                            android:text="60"
+                                            android:gravity="center"
+                                            android:textColor="@color/yellow"
+                                            android:textSize="32sp"/>
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_horizontal"
+                                            android:src="@drawable/players_stats" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:id="@+id/billiardTableStatsFrame"
+                            android:layout_width="match_parent"
+                            android:layout_height="143dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/stats_bg"
+                            android:layout_marginTop="20dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:layout_margin="15dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/billiard_table"
+                                    android:fontFamily="@font/red_hat_display_semibold"
+                                    android:textSize="18sp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/white"/>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal"
+                                    android:gravity="center">
+
+                                    <LinearLayout
+                                        android:id="@+id/leftBilliardTableStats"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical"
+                                        android:gravity="center"
+                                        android:layout_weight="1">
+
+                                        <TextView
+                                            android:id="@+id/billiardTableBookingsStatsText"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/red_hat_display_bold"
+                                            android:text="60"
+                                            android:gravity="center"
+                                            android:textColor="@color/yellow"
+                                            android:textSize="32sp"/>
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_horizontal"
+                                            android:src="@drawable/bookings_stats" />
+                                    </LinearLayout>
+
+                                    <ImageView
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_margin="10dp"
+                                        android:src="@drawable/content_divider"/>
+
+                                    <LinearLayout
+                                        android:id="@+id/rightBilliardTableStats"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical"
+                                        android:gravity="center"
+                                        android:layout_weight="1">
+
+                                        <TextView
+                                            android:id="@+id/billiardTablePlayersStatsText"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/red_hat_display_bold"
+                                            android:text="60"
+                                            android:gravity="center"
+                                            android:textColor="@color/yellow"
+                                            android:textSize="32sp"/>
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_horizontal"
+                                            android:src="@drawable/players_stats" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:id="@+id/privateRoomStatsFrame"
+                            android:layout_width="match_parent"
+                            android:layout_height="143dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/stats_bg"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="100dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:layout_margin="15dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/private_room"
+                                    android:fontFamily="@font/red_hat_display_semibold"
+                                    android:textSize="18sp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/white"/>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal"
+                                    android:gravity="center">
+
+                                    <LinearLayout
+                                        android:id="@+id/leftPrivateRoomStats"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical"
+                                        android:gravity="center"
+                                        android:layout_weight="1">
+
+                                        <TextView
+                                            android:id="@+id/privateRoomBookingsStatsText"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/red_hat_display_bold"
+                                            android:text="60"
+                                            android:gravity="center"
+                                            android:textColor="@color/yellow"
+                                            android:textSize="32sp"/>
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_horizontal"
+                                            android:src="@drawable/bookings_stats" />
+                                    </LinearLayout>
+
+                                    <ImageView
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_margin="10dp"
+                                        android:src="@drawable/content_divider"/>
+
+                                    <LinearLayout
+                                        android:id="@+id/rightPrivateRoomStats"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical"
+                                        android:gravity="center"
+                                        android:layout_weight="1">
+
+                                        <TextView
+                                            android:id="@+id/privateRoomPlayersStatsText"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/red_hat_display_bold"
+                                            android:text="60"
+                                            android:gravity="center"
+                                            android:textColor="@color/yellow"
+                                            android:textSize="32sp"/>
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_horizontal"
+                                            android:src="@drawable/players_stats" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </FrameLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

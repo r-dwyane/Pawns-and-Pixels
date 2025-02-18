@@ -8,19 +8,19 @@
     tools:context=".admin.AdminActivity">
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPager"
+        android:id="@+id/viewPager1"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tablayout"
+        android:id="@+id/tablayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/bottom_background"
-        app:layout_constraintBottom_toBottomOf="@+id/viewPager"
+        app:layout_constraintBottom_toBottomOf="@+id/viewPager1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:tabGravity="fill"

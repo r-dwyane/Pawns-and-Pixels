@@ -35,7 +35,7 @@
 
                     <TextView
                         android:id="@+id/welcomeAdminText"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/syne_bold"
                         android:text="Welcome, Admin!"
@@ -44,7 +44,7 @@
 
                     <TextView
                         android:id="@+id/welcomeAdminDescText"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:fontFamily="@font/red_hat_display_medium"
@@ -74,7 +74,6 @@
                 android:id="@+id/gamesLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
                 android:orientation="vertical">
@@ -82,11 +81,10 @@
                 <ImageView
                     android:id="@+id/contentDividerAdmin1"
                     android:layout_width="match_parent"
-                    android:layout_marginStart="25dp"
+                    android:layout_marginStart="10dp"
                     android:layout_height="1dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="25dp"
+                    android:layout_marginEnd="10dp"
                     android:src="@drawable/content_divider" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -94,17 +92,23 @@
                     android:layout_height="match_parent">
 
                     <com.google.android.material.tabs.TabLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        app:layout_constraintStart_toStartOf="parent"
+                        android:id="@+id/tint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/tab_background"
+                        android:backgroundTint="@color/color_item"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
+                        app:tabGravity="center"
+                        app:tabIndicatorColor="@null"
                         app:tabIndicatorHeight="0dp"
                         app:tabMode="fixed"
-                        app:tabGravity="center"
                         app:tabRippleColor="@null"
-                        android:background="@drawable/tab_background"
-                        android:layout_margin="20dp">
+                        app:tabTextColor="@color/color_item_bottom_nav">
 
                         <com.google.android.material.tabs.TabItem
                             android:layout_width="wrap_content"
@@ -121,18 +125,141 @@
                             android:layout_height="wrap_content"
                             android:text="Year" />
                     </com.google.android.material.tabs.TabLayout>
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="25dp"
-                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
 
+                    <FrameLayout
+                        android:id="@+id/totalBookingsFrame"
+                        android:layout_width="142dp"
+                        android:layout_height="154dp"
+                        android:background="@drawable/stats_bg"
+                        android:layout_margin="15dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="25dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/total_bookings"/>
+
+                            <TextView
+                                android:id="@+id/totalBookingsText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:fontFamily="@font/red_hat_display_bold"
+                                android:text="60"
+                                android:textAlignment="center"
+                                android:textColor="@color/yellow"
+                                android:textSize="32sp"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/red_hat_display_light"
+                                android:text="@string/total_bookings"
+                                android:textAlignment="center"
+                                android:textColor="@color/totalBookings"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/playersFrame"
+                        android:layout_width="142dp"
+                        android:layout_height="154dp"
+                        android:background="@drawable/stats_bg"
+                        android:layout_margin="15dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="25dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/total_players"/>
+
+                            <TextView
+                                android:id="@+id/totalPlayersText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:fontFamily="@font/red_hat_display_bold"
+                                android:text="100"
+                                android:textAlignment="center"
+                                android:textColor="@color/yellow"
+                                android:textSize="32sp"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/red_hat_display_light"
+                                android:text="@string/players"
+                                android:textAlignment="center"
+                                android:textColor="@color/totalBookings"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp">
+
+                    <ImageButton
+                        android:id="@+id/statisticsBtn"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/stats_btn"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/red_hat_display_italic"
+                            android:text="@string/statsBtn"
+                            android:layout_marginBottom="5dp"
+                            android:textSize="13sp"
+                            android:textColor="@color/yellow"/>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="18dp"
+                            android:layout_marginBottom="4dp"
+                            android:src="@drawable/stats_arrow"/>
+                    </LinearLayout>
+                </FrameLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -175,11 +302,11 @@
                 <ImageView
                     android:id="@+id/contentDividerAdminUserFeedback"
                     android:layout_width="match_parent"
-                    android:layout_marginStart="25dp"
+                    android:layout_marginStart="10dp"
                     android:layout_height="1dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="25dp"
+                    android:layout_marginEnd="10dp"
                     android:src="@drawable/content_divider" />
 
                 <LinearLayout

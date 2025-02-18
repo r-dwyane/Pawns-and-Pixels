@@ -25,8 +25,8 @@ class AdminActivity : AppCompatActivity() {
     }
 
     private fun setUpTabBar() {
-        val tabLayout = findViewById<TabLayout>(R.id.tablayout)
-        val viewPager = findViewById<ViewPager2>(R.id.viewPager)
+        val tabLayout = findViewById<TabLayout>(R.id.tablayout1)
+        val viewPager = findViewById<ViewPager2>(R.id.viewPager1)
         val adapter = AdminTabPageAdapter(this, tabLayout.tabCount)
         viewPager.adapter = adapter
 
