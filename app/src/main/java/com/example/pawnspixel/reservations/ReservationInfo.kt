@@ -1,28 +1,17 @@
 package com.example.pawnspixel.reservations
 
-import android.content.res.ColorStateList
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.CalendarView
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Spinner
-import android.widget.TextView
-import android.widget.Toast
-import androidx.core.content.ContextCompat
+import android.widget.*
 import androidx.fragment.app.setFragmentResultListener
 import com.example.pawnspixel.GetDetails
 import com.example.pawnspixel.R
+import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
-import java.util.Calendar
-import java.util.Date
-import java.util.Locale
+import java.util.*
 
 class ReservationInfo : Fragment() {
     private lateinit var roomText: TextView
@@ -30,91 +19,85 @@ class ReservationInfo : Fragment() {
     private lateinit var spinnerStartTime: Spinner
     private lateinit var spinnerEndTime: Spinner
     private lateinit var players: EditText
-    private lateinit var selectedDate: String
-    private lateinit var num_players: String
     private lateinit var reserveButton: Button
-    private lateinit var room: String
-
+    private var room: String = ""
     private val availableTimes = listOf(
         "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM",
         "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM",
         "08:00 PM", "09:00 PM", "10:00 PM", "11:00 PM",
         "12:00 AM"
     )
+    private var selectedDate: String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setFragmentResultListener("requestKey") { _, bundle ->
-            room = bundle.getString("room").toString()
-            val oneString = "Room: $room"
-            roomText.text = oneString.trim()
+            val receivedRoom = bundle.getString("room")
+            if (!receivedRoom.isNullOrEmpty()) {
+                room = receivedRoom
+                if (::roomText.isInitialized) {
+                    roomText.text = "Room: $room".trim()
+                }
+                fetchUnavailableTimes()
+            }
         }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val view = inflater.inflate(R.layout.fragment_reservation_info, container, false)
-        roomText = view?.findViewById(R.id.roomText)!!
+        roomText = view.findViewById(R.id.roomText)
         calendarView = view.findViewById(R.id.calendarView)
         spinnerStartTime = view.findViewById(R.id.spinnerStartTime)
         spinnerEndTime = view.findViewById(R.id.spinnerEndTime)
         players = view.findViewById(R.id.num_players)
         reserveButton = view.findViewById(R.id.reserve_button)
 
-        // Get the current date and calculate the next day
         val calendar = Calendar.getInstance()
-        calendar.add(Calendar.DAY_OF_YEAR, 1)  // Add one day to the current date
-
-        // Format the next day's date
-        val nextDayDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(calendar.time)
-        selectedDate = nextDayDate
-
-        // Set the CalendarView's date to the next day
-        calendarView.date = calendar.timeInMillis
+        calendar.add(Calendar.DAY_OF_YEAR, 1)
+        updateSelectedDate(calendar)
 
         calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
-            val selected = String.format("%04d-%02d-%02d", year, month + 1, dayOfMonth)
-            selectedDate = selected
-            updateDefaultEndTime(year, month, dayOfMonth)
+            val tempCalendar = Calendar.getInstance()
+            tempCalendar.set(year, month, dayOfMonth)
+            if (tempCalendar.before(Calendar.getInstance())) {
+                moveToNextAvailableDate()
+            } else {
+                updateSelectedDate(tempCalendar)
+            }
         }
 
-        val backButton = view.findViewById<ImageView>(R.id.backHome4)
-        backButton?.setOnClickListener {
+        view.findViewById<ImageView>(R.id.backHome4)?.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
 
         setupStartTimeSpinner()
 
         reserveButton.setOnClickListener {
-            val bundle = Bundle()
-            num_players = players.text.toString().trim()
-            val selectedStartTime = spinnerStartTime.selectedItem.toString()
-            val selectedEndTime = spinnerEndTime.selectedItem.toString()
+            val numPlayers = players.text.toString().trim()
+            val selectedStartTime = spinnerStartTime.selectedItem?.toString() ?: ""
+            val selectedEndTime = spinnerEndTime.selectedItem?.toString() ?: ""
 
-            if (num_players.isNotEmpty()) {
-                if (selectedStartTime.isNotEmpty() && selectedEndTime.isNotEmpty()) {
-                    GetDetails.room = room
-                    GetDetails.date = selectedDate
-                    GetDetails.players = num_players
-                    GetDetails.startTime = selectedStartTime
-                    GetDetails.endTime = selectedEndTime
+            if (numPlayers.isNotEmpty() && selectedStartTime.isNotEmpty() && selectedEndTime.isNotEmpty()) {
+                GetDetails.room = room
+                GetDetails.date = selectedDate
+                GetDetails.players = numPlayers
+                GetDetails.startTime = selectedStartTime
+                GetDetails.endTime = selectedEndTime
 
-                    parentFragmentManager.beginTransaction()
-                        .setCustomAnimations(
-                            R.anim.slide_in_left,
-                            R.anim.slide_out_right,
-                            R.anim.slide_in_left,
-                            R.anim.slide_out_right
-                        )
-                        .replace(R.id.nav_host_fragment, ReservationSummary())
-                        .addToBackStack(null)
-                        .commit()
-
-                } else {
-                    Toast.makeText(requireContext(), "Please select start and end time.", Toast.LENGTH_SHORT).show()
-                }
+                parentFragmentManager.beginTransaction()
+                    .setCustomAnimations(
+                        R.anim.slide_in_left,
+                        R.anim.slide_out_right,
+                        R.anim.slide_in_left,
+                        R.anim.slide_out_right
+                    )
+                    .replace(R.id.nav_host_fragment, ReservationSummary())
+                    .addToBackStack(null)
+                    .commit()
             } else {
                 Toast.makeText(requireContext(), "Please enter all fields.", Toast.LENGTH_SHORT).show()
             }
@@ -123,50 +106,73 @@ class ReservationInfo : Fragment() {
         return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setDefaultStartTime()
+    private fun fetchUnavailableTimes() {
+        if (room.isEmpty() || selectedDate.isEmpty()) return
+
+        val db = FirebaseFirestore.getInstance()
+        db.collection("bookings")
+            .whereEqualTo("date", selectedDate)
+            .whereEqualTo("room", room)
+            .whereIn("status", listOf("Ongoing", "Accepted"))
+            .get()
+            .addOnSuccessListener { documents ->
+                val unavailableTimes = mutableSetOf<String>()
+
+                // Identify booked time slots
+                documents.forEach { document ->
+                    val startTime = document.getString("startTime")
+                    val endTime = document.getString("endTime")
+
+                    if (startTime != null && endTime != null) {
+                        val startIndex = availableTimes.indexOf(startTime)
+                        val endIndex = availableTimes.indexOf(endTime)
+
+                        if (startIndex != -1 && endIndex != -1) {
+                            for (i in startIndex..endIndex) {
+                                unavailableTimes.add(availableTimes[i])
+                            }
+                        }
+                    }
+                }
+
+                // Get max allowed end time based on the day
+                val maxEndTime = getMaxEndTime(selectedDate)
+                val maxEndIndex = availableTimes.indexOf(maxEndTime)
+
+                // Filter available time slots based on bookings and max end time
+                val filteredTimes = availableTimes
+                    .filterIndexed { index, time ->
+                        time !in unavailableTimes && index <= maxEndIndex
+                    }
+
+                if (filteredTimes.isEmpty()) {
+                    moveToNextAvailableDate()
+                } else {
+                    updateStartTimeSpinner(filteredTimes)
+                }
+            }
     }
 
-    private fun setDefaultStartTime() {
-        val startTimeAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, availableTimes)
-        spinnerStartTime.adapter = startTimeAdapter
-        spinnerStartTime.setSelection(availableTimes.indexOf("12:00 PM"))
-    }
-
-    private fun updateDefaultEndTime(year: Int, month: Int, dayOfMonth: Int) {
+    private fun getMaxEndTime(date: String): String {
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val calendar = Calendar.getInstance()
-        calendar.set(year, month, dayOfMonth)
 
-        val dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
-
-        val defaultEndTime = when (dayOfWeek) {
-            Calendar.MONDAY, Calendar.TUESDAY, Calendar.WEDNESDAY, Calendar.THURSDAY -> "10:00 PM"
-            Calendar.FRIDAY, Calendar.SATURDAY, Calendar.SUNDAY -> "12:00 AM"
-            else -> "10:00 PM"
-        }
-
-        setDefaultEndTime(defaultEndTime)
-    }
-
-    private fun setDefaultEndTime(defaultEndTime: String) {
-        val endTimeAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, availableTimes)
-        spinnerEndTime.adapter = endTimeAdapter
-
-        val defaultEndTimePosition = availableTimes.indexOf(defaultEndTime)
-        if (defaultEndTimePosition != -1) {
-            spinnerEndTime.setSelection(defaultEndTimePosition)
+        return try {
+            calendar.time = dateFormat.parse(date)!!
+            val dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
+            if (dayOfWeek in Calendar.FRIDAY..Calendar.SUNDAY) "12:00 AM" else "10:00 PM"
+        } catch (e: Exception) {
+            "10:00 PM" // Default fallback
         }
     }
 
-    private fun setupStartTimeSpinner() {
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, availableTimes)
+
+    private fun updateStartTimeSpinner(filteredTimes: List<String>) {
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, filteredTimes)
         spinnerStartTime.adapter = adapter
-
         spinnerStartTime.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                val selectedTime = availableTimes[position]
-                updateEndTimeSpinner(selectedTime)
+                updateEndTimeSpinner(filteredTimes[position])
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -174,33 +180,59 @@ class ReservationInfo : Fragment() {
     }
 
     private fun updateEndTimeSpinner(startTime: String) {
-        var filteredTimes: List<String>
+        val startIndex = availableTimes.indexOf(startTime)
+        val maxEndTime = getMaxEndTime(selectedDate)
+        val maxEndIndex = availableTimes.indexOf(maxEndTime)
 
-        if (startTime == "12:00 PM") {
-            // If start time is 12:00 PM, show all times from 1:00 PM onwards
-            filteredTimes = availableTimes.subList(1, availableTimes.size)
-        } else {
-            // Filter out times that are less than or equal to the selected start time
-            filteredTimes = availableTimes.filter { it > startTime }
-        }
+        if (startIndex != -1) {
+            val filteredTimes = availableTimes
+                .subList(startIndex + 1, maxEndIndex + 1)
 
-        // Remove 11:00 PM and 12:00 AM if the selected start time is 10:00 PM
-        if (startTime == "10:00 PM") {
-            filteredTimes = filteredTimes.filterNot { it == "11:00 PM" || it == "12:00 AM" }
-        }
-
-        // Ensure 12:00 PM is never in the filtered list
-        val filteredTimesWithout12PM = filteredTimes.filter { it != "12:00 PM" }
-
-        if (filteredTimesWithout12PM.isEmpty()) {
-            // Disable the end time spinner if no valid options are available
-            spinnerEndTime.isEnabled = false
-        } else {
-            // Enable the end time spinner and update the adapter
-            spinnerEndTime.isEnabled = true
-            val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, filteredTimesWithout12PM)
-            spinnerEndTime.adapter = adapter
+            if (filteredTimes.isNotEmpty()) {
+                val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, filteredTimes)
+                spinnerEndTime.adapter = adapter
+                spinnerEndTime.isEnabled = true
+            } else {
+                spinnerEndTime.adapter = null
+                spinnerEndTime.isEnabled = false
+                Toast.makeText(requireContext(), "No valid end times available.", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
+    private fun updateDefaultEndTime(calendar: Calendar) {
+        val dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
+        val defaultEndTime = if (dayOfWeek in Calendar.FRIDAY..Calendar.SUNDAY) "12:00 AM" else "10:00 PM"
+
+        val endTimeAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, listOf(defaultEndTime))
+        spinnerEndTime.adapter = endTimeAdapter
+        spinnerEndTime.isEnabled = true
+    }
+
+    private fun setupStartTimeSpinner() {
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, availableTimes)
+        spinnerStartTime.adapter = adapter
+        spinnerStartTime.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                updateEndTimeSpinner(availableTimes[position])
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+    }
+
+    private fun updateSelectedDate(calendar: Calendar) {
+        selectedDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(calendar.time)
+        calendarView.date = calendar.timeInMillis
+        updateDefaultEndTime(calendar)
+        fetchUnavailableTimes()
+    }
+
+    private fun moveToNextAvailableDate() {
+        val calendar = Calendar.getInstance()
+        calendar.timeInMillis = calendarView.date
+        calendar.add(Calendar.DAY_OF_YEAR, 1)
+        updateSelectedDate(calendar)
+        Toast.makeText(requireContext(), "No available slots. Moving to next available date.", Toast.LENGTH_SHORT).show()
+    }
 }

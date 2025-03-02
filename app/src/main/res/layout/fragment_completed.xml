@@ -1,17 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frameLayoutComplete"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".reservations.CompletedFragment">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:backgroundTint="@android:color/transparent">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Completed"
-        android:textSize="20sp"
-        android:textColor="@color/white"
-        android:layout_gravity="center"
-        />
+        android:orientation="vertical"
+        android:background="@drawable/glassmorphism"
+        android:padding="16dp">
 
+        <TextView
+            android:id="@+id/completed_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status: Pending"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/red_hat_display_bold" />
+
+        <TextView
+            android:id="@+id/completed_room"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Game Room"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/redhatdisplay_regular" />
+
+        <TextView
+            android:id="@+id/completed_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reservation Date"
+            android:textSize="11sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/redhatdisplay_regular"
+            android:alpha="0.75"/>
+
+        <TextView
+            android:id="@+id/feedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Leave a Feedback ->"
+            android:textSize="12sp"
+            android:textColor="@color/yellow"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/inter_semibold"/>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/chevron_left" />
 </FrameLayout>

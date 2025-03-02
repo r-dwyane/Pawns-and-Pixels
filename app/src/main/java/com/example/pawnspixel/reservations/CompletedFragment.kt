@@ -1,60 +1,109 @@
 package com.example.pawnspixel.reservations
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
+import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.pawnspixel.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.util.Locale
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [CompletedFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CompletedFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: CompletedAdapter
+    private val reservationList = mutableListOf<ReservationsDataClass>()
+    private val db = FirebaseFirestore.getInstance()
+    private val auth = FirebaseAuth.getInstance()
+    private lateinit var progressContainer: RelativeLayout
+    private lateinit var defaultText: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_completed, container, false)
+        val view = inflater.inflate(R.layout.fragment_completedrecyclerview, container, false)
+
+        recyclerView = view.findViewById(R.id.completedRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        progressContainer = view.findViewById(R.id.progressCompleted)
+        defaultText = view.findViewById(R.id.noCompleted)
+
+        adapter = CompletedAdapter(reservationList, object : CompletedAdapter.OnItemClickListener {
+            override fun onItemClick(position: Int) {
+                val clickedReservation = reservationList[position]
+
+                val bundle = Bundle().apply {
+                    putString("status", clickedReservation.status)
+                    putString("room", clickedReservation.room)
+                    putString("date", clickedReservation.date)
+                    putString("startTime", clickedReservation.startTime)
+                    putString("endTime", clickedReservation.endTime)
+                    putString("reservationId", clickedReservation.reservationId)
+                    putString("numberOfPlayers", clickedReservation.players)
+                    putString("createdAt", clickedReservation.createdAt)
+                }
+
+                val detailsFragment = CompletedDetails()
+                detailsFragment.arguments = bundle
+                parentFragmentManager.beginTransaction()
+                    .setCustomAnimations(
+                        R.anim.slide_in_left,
+                        R.anim.slide_out_right,
+                        R.anim.slide_in_left,
+                        R.anim.slide_out_right
+                    )
+                    .replace(R.id.nav_host_fragment, detailsFragment)
+                    .addToBackStack(null)
+                    .commit()
+            }
+        })
+
+        recyclerView.adapter = adapter
+
+        fetchPendingReservations()
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CompletedFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CompletedFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun fetchPendingReservations() {
+        val currentUser = auth.currentUser?.uid ?: return
+
+        db.collection("bookings")
+            .whereEqualTo("userId", currentUser)
+            .whereEqualTo("status", "Completed")
+            .addSnapshotListener { snapshots, error ->
+                if (error != null) {
+                    Toast.makeText(requireContext(), "Error: ${error.message}", Toast.LENGTH_SHORT).show()
+                    return@addSnapshotListener
                 }
+
+                if (snapshots != null && !snapshots.isEmpty) {
+                    reservationList.clear()
+                    defaultText.visibility = View.GONE
+
+                    for (document in snapshots) {
+                        val reservation = document.toObject(ReservationsDataClass::class.java).copy(
+                            reservationId = document.id
+                        )
+                        reservationList.add(reservation)
+                    }
+
+                    adapter.notifyDataSetChanged()
+                } else {
+                    defaultText.visibility = View.VISIBLE
+                }
+
             }
     }
+
+
 }
