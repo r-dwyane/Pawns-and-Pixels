@@ -212,6 +212,29 @@
             android:id="@+id/action_adminStatisticsFragment_to_adminHomeFragment"
             app:destination="@id/adminHomeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/adminCMSFragment"
+        android:name="com.example.pawnspixel.admin.AdminCMSFragment"
+        android:label="fragment_admin_c_m_s"
+        tools:layout="@layout/fragment_admin_c_m_s" />
+    <fragment
+        android:id="@+id/adminBoardGamesFragment"
+        android:name="com.example.pawnspixel.admin.AdminBoardGamesFragment"
+        android:label="fragment_admin_board_games"
+        tools:layout="@layout/fragment_admin_board_games" >
+        <action
+            android:id="@+id/action_adminBoardGamesFragment_to_adminCMSFragment"
+            app:destination="@id/adminCMSFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminNintendoSwitchGameRoomFragment"
+        android:name="com.example.pawnspixel.admin.AdminNintendoSwitchGameRoomFragment"
+        android:label="fragment_admin_nintendo_switch_game_room"
+        tools:layout="@layout/fragment_admin_nintendo_switch_game_room" >
+        <action
+            android:id="@+id/action_adminNintendoSwitchGameRoomFragment_to_adminCMSFragment"
+            app:destination="@id/adminCMSFragment" />
+    </fragment>
 
 
 </navigation>

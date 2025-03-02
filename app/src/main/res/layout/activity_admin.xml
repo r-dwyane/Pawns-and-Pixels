@@ -52,4 +52,12 @@
             android:text="CMS" />
     </com.google.android.material.tabs.TabLayout>
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/admin_nav_host_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph"
+        android:visibility="gone" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

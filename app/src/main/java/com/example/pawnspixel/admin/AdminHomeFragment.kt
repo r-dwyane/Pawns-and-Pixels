@@ -29,7 +29,7 @@ class AdminHomeFragment : Fragment() {
                     R.anim.slide_in_left,
                     R.anim.slide_out_right
                 )
-                .replace(R.id.nav_host_fragment, AdminStatisticsFragment())
+                .replace(R.id.admin_nav_host_fragment, AdminStatisticsFragment())
                 .addToBackStack(null)
                 .commit()
         }
@@ -38,6 +38,6 @@ class AdminHomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        activity?.findViewById<View>(R.id.nav_host_fragment)?.visibility = View.VISIBLE
+        activity?.findViewById<View>(R.id.admin_nav_host_fragment)?.visibility = View.VISIBLE
     }
 }
