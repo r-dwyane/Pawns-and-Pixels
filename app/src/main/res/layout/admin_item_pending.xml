@@ -1,0 +1,54 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frameLayoutItems"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:backgroundTint="@android:color/transparent">
+
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/glassmorphism"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/admin_customer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name:"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/red_hat_display_bold" />
+
+        <TextView
+            android:id="@+id/admin_reservation_room"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Game Room"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/redhatdisplay_regular" />
+
+        <TextView
+            android:id="@+id/admin_reservation_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reservation Date"
+            android:textSize="11sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/redhatdisplay_regular"
+            android:alpha="0.75"/>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/chevron_left" />
+</FrameLayout>

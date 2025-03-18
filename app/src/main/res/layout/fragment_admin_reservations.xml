@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/page_background"
-    tools:context=".admin.AdminReservationsFragment">
+    tools:context=".admin.reservations.AdminReservationsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,7 +49,7 @@
                 </LinearLayout>
 
                 <ImageButton
-                    android:id="@+id/new_reservations"
+                    android:id="@+id/add_reservations"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_marginEnd="10dp"
@@ -63,7 +63,7 @@
         </FrameLayout>
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tablayout2"
+            android:id="@+id/admin_tablayout2"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_width="wrap_content"
@@ -80,14 +80,9 @@
             app:tabUnboundedRipple="false"
             android:clipToPadding="false" />
 
-        <FrameLayout
-            android:id="@+id/searchAdminReservationsFrame"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="25dp"/>
 
         <FrameLayout
-            android:id="@+id/reservations_layout"
+            android:id="@+id/admin_reservations_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

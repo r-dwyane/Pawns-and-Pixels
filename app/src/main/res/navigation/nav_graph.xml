@@ -235,6 +235,106 @@
             android:id="@+id/action_adminNintendoSwitchGameRoomFragment_to_adminCMSFragment"
             app:destination="@id/adminCMSFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/adminNewReservation"
+        android:name="com.example.pawnspixel.admin.reservations.AdminNewReservation"
+        android:label="fragment_admin_new_reservation"
+        tools:layout="@layout/fragment_admin_new_reservation" >
+        <action
+            android:id="@+id/action_adminNewReservation_to_adminReservationInfo"
+            app:destination="@id/adminReservationInfo" />
+    </dialog>
+    <fragment
+        android:id="@+id/adminReservationInfo"
+        android:name="com.example.pawnspixel.admin.reservations.AdminReservationInfo"
+        android:label="fragment_admin_reservation_info"
+        tools:layout="@layout/fragment_admin_reservation_info" >
+        <action
+            android:id="@+id/action_adminReservationInfo_to_adminNewReservation"
+            app:destination="@id/adminNewReservation" />
+        <action
+            android:id="@+id/action_adminReservationInfo_to_adminReservationSummary"
+            app:destination="@id/adminReservationSummary" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminReservationSummary"
+        android:name="com.example.pawnspixel.admin.reservations.AdminReservationSummary"
+        android:label="AdminReservationSummary"
+        tools:layout="@layout/fragment_admin_reservation_summary">
+        <action
+            android:id="@+id/action_adminReservationSummary_to_adminReservationInfo"
+            app:destination="@id/adminReservationInfo" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminPending"
+        android:name="com.example.pawnspixel.admin.reservations.AdminPending"
+        android:label="fragment_admin_pending"
+        tools:layout="@layout/fragment_admin_pending" >
+        <action
+            android:id="@+id/action_adminPending_to_adminPendingDetails"
+            app:destination="@id/adminPendingDetails" />
+        <action
+            android:id="@+id/action_adminPending_to_adminAcceptedDetails2"
+            app:destination="@id/adminAcceptedDetails2" />
+        <action
+            android:id="@+id/action_adminPending_to_adminOngoingDetails"
+            app:destination="@id/adminOngoingDetails" />
+        <action
+            android:id="@+id/action_adminPending_to_adminCompletedDetails"
+            app:destination="@id/adminCompletedDetails" />
+        <action
+            android:id="@+id/action_adminPending_to_adminDeclinedDetails"
+            app:destination="@id/adminDeclinedDetails" />
+        <action
+            android:id="@+id/action_adminPending_to_adminCancelled"
+            app:destination="@id/adminCancelled" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminPendingDetails"
+        android:name="com.example.pawnspixel.admin.reservations.AdminPendingDetails"
+        android:label="AdminPendingDetails" >
+        <action
+            android:id="@+id/action_adminPendingDetails_to_adminPending"
+            app:destination="@id/adminPending" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminAcceptedDetails2"
+        android:name="com.example.pawnspixel.admin.reservations.AdminAcceptedDetails"
+        android:label="AdminAcceptedDetails" >
+        <action
+            android:id="@+id/action_adminAcceptedDetails2_to_adminPending"
+            app:destination="@id/adminPending" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminOngoingDetails"
+        android:name="com.example.pawnspixel.admin.reservations.AdminOngoingDetails"
+        android:label="AdminOngoingDetails" >
+        <action
+            android:id="@+id/action_adminOngoingDetails_to_adminPending"
+            app:destination="@id/adminPending" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminDeclinedDetails"
+        android:name="com.example.pawnspixel.admin.reservations.AdminDeclinedDetails"
+        android:label="fragment_admin_declined_details"
+        tools:layout="@layout/fragment_admin_declined_details" />
+    <fragment
+        android:id="@+id/adminCompletedDetails"
+        android:name="com.example.pawnspixel.admin.reservations.AdminCompletedDetails"
+        android:label="fragment_admin_completed"
+        tools:layout="@layout/fragment_admin_completed" >
+        <action
+            android:id="@+id/action_adminCompletedDetails_to_adminPending"
+            app:destination="@id/adminPending" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminCancelled"
+        android:name="com.example.pawnspixel.admin.reservations.AdminCancelled"
+        android:label="AdminCancelled" >
+        <action
+            android:id="@+id/action_adminCancelled_to_adminPending"
+            app:destination="@id/adminPending" />
+    </fragment>
 
 
 </navigation>
