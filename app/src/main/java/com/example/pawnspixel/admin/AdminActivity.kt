@@ -1,7 +1,6 @@
 package com.example.pawnspixel.admin
 
 import android.os.Bundle
-import android.util.TypedValue
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -45,4 +44,5 @@ class AdminActivity : AppCompatActivity() {
         })
 
     }
+
 }

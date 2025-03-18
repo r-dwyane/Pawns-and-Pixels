@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/page_background"
-    tools:context=".admin.rooms.AdminNintendoSwitchGameRoomFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".admin.rooms.AdminPixelsGaming">
 
     <RelativeLayout
         android:id="@+id/admin_progressContainerNew"
@@ -81,7 +81,7 @@
                         android:layout_marginEnd="25dp"
                         android:layout_marginBottom="10dp"
                         android:fontFamily="@font/syne"
-                        android:text="@string/admin_nintendo_switch_game_room"
+                        android:text="Pixels Gaming"
                         android:textColor="@color/white"
                         android:textSize="20sp" />
 
@@ -114,19 +114,19 @@
                             android:id="@+id/imageView2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/nintendo_img" />
+                            android:src="@drawable/pixels_img" />
 
                         <ImageView
                             android:id="@+id/imageView3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/nintendo_img2" />
+                            android:src="@drawable/pixels_img2" />
 
                         <ImageView
                             android:id="@+id/imageView4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/nintendo_img3" />
+                            android:src="@drawable/pixels_img3" />
 
                     </ViewFlipper>
 
@@ -137,6 +137,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginEnd="25dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/readex_pro_semibold"
                     android:text="@string/description"
@@ -144,7 +145,7 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/adminNintendoRoomsEquipmentsDesc"
+                    android:id="@+id/adminPixelsGamingRoomsEquipmentsDesc"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_marginStart="25dp"
@@ -152,7 +153,6 @@
                     android:layout_marginBottom="10dp"
                     android:padding="15dp"
                     android:hint="@string/add_description"
-                    android:text="@string/sampledesc"
                     android:inputType="textMultiLine"
                     android:textColor="@color/white"
                     android:textColorHint="@color/statsGray"
@@ -170,12 +170,34 @@
                     android:layout_marginEnd="25dp"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/readex_pro_semibold"
-                    android:text="@string/status"
+                    android:text="Pixels Gaming TV (1) Status:"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
 
                 <Spinner
-                    android:id="@+id/adminRoomsEquipmentsStatus"
+                    android:id="@+id/adminPixelsGaming1RoomsEquipmentsStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingStart="10dp"
+                    android:background="@drawable/admin_status_bg"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/readex_pro_semibold"
+                    android:text="Pixels Gaming TV (2) Status:"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/adminPixelsGaming2RoomsEquipmentsStatus"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_marginStart="25dp"
@@ -185,7 +207,7 @@
                     android:background="@drawable/admin_status_bg"/>
 
                 <Button
-                    android:id="@+id/admin_nintendoUpdate"
+                    android:id="@+id/admin_pixelsUpdate"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_marginTop="10dp"

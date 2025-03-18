@@ -216,10 +216,23 @@
         android:id="@+id/adminCMSFragment"
         android:name="com.example.pawnspixel.admin.AdminCMSFragment"
         android:label="fragment_admin_c_m_s"
-        tools:layout="@layout/fragment_admin_c_m_s" />
+        tools:layout="@layout/fragment_admin_c_m_s" >
+        <action
+            android:id="@+id/action_adminCMSFragment_to_adminPixelsGaming"
+            app:destination="@id/adminPixelsGaming" />
+        <action
+            android:id="@+id/action_adminCMSFragment_to_adminPrivateRoom"
+            app:destination="@id/adminPrivateRoom" />
+        <action
+            android:id="@+id/action_adminCMSFragment_to_adminBilliardTable"
+            app:destination="@id/adminBilliardTable" />
+        <action
+            android:id="@+id/action_adminCMSFragment_to_adminNintendoSwitchGameRoomFragment"
+            app:destination="@id/adminNintendoSwitchGameRoomFragment" />
+    </fragment>
     <fragment
         android:id="@+id/adminBoardGamesFragment"
-        android:name="com.example.pawnspixel.admin.AdminBoardGamesFragment"
+        android:name="com.example.pawnspixel.admin.games.AdminBoardGamesFragment"
         android:label="fragment_admin_board_games"
         tools:layout="@layout/fragment_admin_board_games" >
         <action
@@ -228,11 +241,14 @@
     </fragment>
     <fragment
         android:id="@+id/adminNintendoSwitchGameRoomFragment"
-        android:name="com.example.pawnspixel.admin.AdminNintendoSwitchGameRoomFragment"
+        android:name="com.example.pawnspixel.admin.rooms.AdminNintendoSwitchGameRoomFragment"
         android:label="fragment_admin_nintendo_switch_game_room"
         tools:layout="@layout/fragment_admin_nintendo_switch_game_room" >
         <action
             android:id="@+id/action_adminNintendoSwitchGameRoomFragment_to_adminCMSFragment"
+            app:destination="@id/adminCMSFragment" />
+        <action
+            android:id="@+id/action_adminNintendoSwitchGameRoomFragment_to_adminCMSFragment2"
             app:destination="@id/adminCMSFragment" />
     </fragment>
     <dialog
@@ -334,6 +350,39 @@
         <action
             android:id="@+id/action_adminCancelled_to_adminPending"
             app:destination="@id/adminPending" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminPixelsGaming"
+        android:name="com.example.pawnspixel.admin.rooms.AdminPixelsGaming"
+        android:label="fragment_admin_pixels_gaming"
+        tools:layout="@layout/fragment_admin_pixels_gaming" >
+        <action
+            android:id="@+id/action_adminPixelsGaming_to_adminCMSFragment"
+            app:destination="@id/adminCMSFragment" />
+        <action
+            android:id="@+id/action_adminPixelsGaming_to_adminCMSFragment2"
+            app:destination="@id/adminCMSFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminPrivateRoom"
+        android:name="com.example.pawnspixel.admin.rooms.AdminPrivateRoom"
+        android:label="fragment_admin_private_room"
+        tools:layout="@layout/fragment_admin_private_room" >
+        <action
+            android:id="@+id/action_adminPrivateRoom_to_adminCMSFragment"
+            app:destination="@id/adminCMSFragment" />
+        <action
+            android:id="@+id/action_adminPrivateRoom_to_adminCMSFragment2"
+            app:destination="@id/adminCMSFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminBilliardTable"
+        android:name="com.example.pawnspixel.admin.rooms.AdminBilliardTable"
+        android:label="fragment_admin_billiard_table"
+        tools:layout="@layout/fragment_admin_billiard_table" >
+        <action
+            android:id="@+id/action_adminBilliardTable_to_adminCMSFragment"
+            app:destination="@id/adminCMSFragment" />
     </fragment>
 
 

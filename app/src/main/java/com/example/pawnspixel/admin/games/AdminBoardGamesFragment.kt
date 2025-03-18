@@ -1,4 +1,4 @@
-package com.example.pawnspixel.admin
+package com.example.pawnspixel.admin.games
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,18 +8,19 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import com.example.pawnspixel.R
 
-class AdminNintendoSwitchGameRoomFragment : Fragment() {
+class AdminBoardGamesFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_admin_nintendo_switch_game_room, container, false)
-        val backBtnAdminRoomsEquipments: ImageButton = view.findViewById(R.id.backBtnAdminRoomsEquipments)!!
+        val view = inflater.inflate(R.layout.fragment_admin_board_games, container, false)
+        val backBtnAdminBoardGames:ImageButton = view.findViewById(R.id.backBtnAdminBoardGames)!!
 
-        backBtnAdminRoomsEquipments.setOnClickListener {
+        backBtnAdminBoardGames.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
+
         return view
     }
 }

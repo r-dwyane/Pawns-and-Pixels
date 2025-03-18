@@ -91,17 +91,6 @@
                         android:layout_marginStart="25dp"
                         android:orientation="horizontal">
 
-                        <ImageButton
-                            android:id="@+id/new_games_cms"
-                            android:layout_width="45dp"
-                            android:layout_height="45dp"
-                            android:layout_marginEnd="8dp"
-                            android:background="@drawable/add_games_cms"
-                            app:backgroundTint="@null"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
                         <FrameLayout
                             android:id="@+id/boardGamesFrameLayout"
                             android:layout_width="wrap_content"
@@ -417,7 +406,7 @@
                             android:orientation="vertical">
 
                             <FrameLayout
-                                android:id="@+id/nintendo_rooms"
+                                android:id="@+id/admin_nintendo_rooms"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
@@ -488,7 +477,7 @@
                             android:orientation="vertical">
 
                             <FrameLayout
-                                android:id="@+id/pixels_gaming"
+                                android:id="@+id/admin_pixels_gaming"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
@@ -560,7 +549,7 @@
                             android:orientation="vertical">
 
                             <FrameLayout
-                                android:id="@+id/private_room"
+                                android:id="@+id/admin_private_room"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
@@ -632,7 +621,7 @@
                             android:orientation="vertical">
 
                             <FrameLayout
-                                android:id="@+id/billiard_table"
+                                android:id="@+id/admin_billiard_table"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
