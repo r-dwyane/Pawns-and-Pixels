@@ -40,12 +40,6 @@
                 android:text="@string/statistics"
                 android:textSize="20sp"/>
 
-            <ImageButton
-                android:id="@+id/filterBtnStats"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/filter"
-                android:backgroundTint="@color/transparent"/>
         </LinearLayout>
 
         <LinearLayout
@@ -149,7 +143,7 @@
                                             android:layout_height="match_parent"
                                             android:layout_weight="1"
                                             android:fontFamily="@font/red_hat_display_bold"
-                                            android:text="60"
+                                            android:text="0"
                                             android:gravity="center"
                                             android:textColor="@color/yellow"
                                             android:textSize="32sp"/>
@@ -181,7 +175,7 @@
                                             android:layout_height="match_parent"
                                             android:layout_weight="1"
                                             android:fontFamily="@font/red_hat_display_bold"
-                                            android:text="60"
+                                            android:text="0"
                                             android:gravity="center"
                                             android:textColor="@color/yellow"
                                             android:textSize="32sp"/>
@@ -239,7 +233,7 @@
                                             android:layout_height="match_parent"
                                             android:layout_weight="1"
                                             android:fontFamily="@font/red_hat_display_bold"
-                                            android:text="60"
+                                            android:text="0"
                                             android:gravity="center"
                                             android:textColor="@color/yellow"
                                             android:textSize="32sp"/>
@@ -271,7 +265,7 @@
                                             android:layout_height="match_parent"
                                             android:layout_weight="1"
                                             android:fontFamily="@font/red_hat_display_bold"
-                                            android:text="60"
+                                            android:text="0"
                                             android:gravity="center"
                                             android:textColor="@color/yellow"
                                             android:textSize="32sp"/>
@@ -329,7 +323,7 @@
                                             android:layout_height="match_parent"
                                             android:layout_weight="1"
                                             android:fontFamily="@font/red_hat_display_bold"
-                                            android:text="60"
+                                            android:text="0"
                                             android:gravity="center"
                                             android:textColor="@color/yellow"
                                             android:textSize="32sp"/>
@@ -361,7 +355,7 @@
                                             android:layout_height="match_parent"
                                             android:layout_weight="1"
                                             android:fontFamily="@font/red_hat_display_bold"
-                                            android:text="60"
+                                            android:text="0"
                                             android:gravity="center"
                                             android:textColor="@color/yellow"
                                             android:textSize="32sp"/>
@@ -382,8 +376,7 @@
                             android:layout_height="143dp"
                             android:layout_gravity="center"
                             android:background="@drawable/stats_bg"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginBottom="100dp">
+                            android:layout_marginTop="20dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -420,7 +413,7 @@
                                             android:layout_height="match_parent"
                                             android:layout_weight="1"
                                             android:fontFamily="@font/red_hat_display_bold"
-                                            android:text="60"
+                                            android:text="0"
                                             android:gravity="center"
                                             android:textColor="@color/yellow"
                                             android:textSize="32sp"/>
@@ -452,7 +445,7 @@
                                             android:layout_height="match_parent"
                                             android:layout_weight="1"
                                             android:fontFamily="@font/red_hat_display_bold"
-                                            android:text="60"
+                                            android:text="0"
                                             android:gravity="center"
                                             android:textColor="@color/yellow"
                                             android:textSize="32sp"/>

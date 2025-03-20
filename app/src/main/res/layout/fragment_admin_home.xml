@@ -7,6 +7,24 @@
     android:background="@drawable/page_background"
     tools:context=".admin.AdminHomeFragment">
 
+    <RelativeLayout
+        android:id="@+id/admin_progressContainerNew"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:background="#66F21B5C"
+        android:elevation="9999dp">
+
+        <ImageView
+            android:id="@+id/progressImage3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/logo_clear"
+            android:elevation="10000dp" />
+    </RelativeLayout>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -161,7 +179,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
                                 android:fontFamily="@font/red_hat_display_bold"
-                                android:text="60"
+                                android:text="0"
                                 android:textAlignment="center"
                                 android:textColor="@color/yellow"
                                 android:textSize="32sp"/>
@@ -206,7 +224,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
                                 android:fontFamily="@font/red_hat_display_bold"
-                                android:text="100"
+                                android:text="0"
                                 android:textAlignment="center"
                                 android:textColor="@color/yellow"
                                 android:textSize="32sp"/>
