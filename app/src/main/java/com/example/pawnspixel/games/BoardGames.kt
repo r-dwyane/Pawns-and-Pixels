@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pawnspixel.R
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ListenerRegistration
 
 class BoardGames : Fragment() {
 
@@ -18,6 +19,7 @@ class BoardGames : Fragment() {
     private lateinit var boardGamesAdapter: GamesAdapter
     private val gameList = mutableListOf<Game>()
     private val db = FirebaseFirestore.getInstance()
+    private var gamesListener: ListenerRegistration? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +35,7 @@ class BoardGames : Fragment() {
         }
 
         setupRecyclerView()
-        fetchBoardGames()
+        listenForBoardGamesUpdates()
 
         return view
     }
@@ -44,20 +46,28 @@ class BoardGames : Fragment() {
         boardGamesRecyclerView.adapter = boardGamesAdapter
     }
 
-    private fun fetchBoardGames() {
-        db.collection("games")
+    private fun listenForBoardGamesUpdates() {
+        gamesListener = db.collection("games")
             .whereEqualTo("gameType", "Board Games")
-            .get()
-            .addOnSuccessListener { documents ->
-                gameList.clear()
-                for (document in documents) {
-                    val game = document.toObject(Game::class.java)
-                    gameList.add(game)
+            .addSnapshotListener { snapshots, error ->
+                if (error != null) {
+                    Toast.makeText(requireContext(), "Error fetching games: ${error.message}", Toast.LENGTH_SHORT).show()
+                    return@addSnapshotListener
                 }
-                boardGamesAdapter.notifyDataSetChanged()
+
+                if (snapshots != null) {
+                    gameList.clear()
+                    for (document in snapshots) {
+                        val game = document.toObject(Game::class.java)
+                        gameList.add(game)
+                    }
+                    boardGamesAdapter.notifyDataSetChanged()
+                }
             }
-            .addOnFailureListener {
-                Toast.makeText(requireContext(), "Failed to fetch games", Toast.LENGTH_SHORT).show()
-            }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        gamesListener?.remove()
     }
 }

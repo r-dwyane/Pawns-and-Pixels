@@ -253,6 +253,12 @@
         <action
             android:id="@+id/action_adminBoardGamesFragment_to_adminAddGame"
             app:destination="@id/adminAddGame" />
+        <action
+            android:id="@+id/action_adminBoardGamesFragment_to_adminEditGame"
+            app:destination="@id/adminEditGame" />
+        <action
+            android:id="@+id/action_adminBoardGamesFragment_to_adminEditGame2"
+            app:destination="@id/adminEditGame" />
     </fragment>
     <fragment
         android:id="@+id/adminNintendoSwitchGameRoomFragment"
@@ -428,6 +434,9 @@
         <action
             android:id="@+id/action_adminXboxGames_to_adminAddGame"
             app:destination="@id/adminAddGame" />
+        <action
+            android:id="@+id/action_adminXboxGames_to_adminEditGame"
+            app:destination="@id/adminEditGame" />
     </fragment>
     <fragment
         android:id="@+id/adminNintendoGames"
@@ -440,6 +449,12 @@
         <action
             android:id="@+id/action_adminNintendoGames_to_adminAddGame"
             app:destination="@id/adminAddGame" />
+        <action
+            android:id="@+id/action_adminNintendoGames_to_adminEditGame"
+            app:destination="@id/adminEditGame" />
+        <action
+            android:id="@+id/action_adminNintendoGames_to_adminEditGame2"
+            app:destination="@id/adminEditGame" />
     </fragment>
     <fragment
         android:id="@+id/adminAddGame"
@@ -454,6 +469,23 @@
         <action
             android:id="@+id/action_adminAddGame_to_adminXboxGames"
             app:destination="@id/adminXboxGames" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminEditGame"
+        android:name="com.example.pawnspixel.admin.games.AdminEditGame"
+        android:label="AdminEditGame" >
+        <action
+            android:id="@+id/action_adminEditGame_to_adminBoardGamesFragment"
+            app:destination="@id/adminBoardGamesFragment" />
+        <action
+            android:id="@+id/action_adminEditGame_to_adminXboxGames2"
+            app:destination="@id/adminXboxGames" />
+        <action
+            android:id="@+id/action_adminEditGame_to_adminNintendoGames2"
+            app:destination="@id/adminNintendoGames" />
+        <action
+            android:id="@+id/action_adminEditGame_to_adminBoardGamesFragment2"
+            app:destination="@id/adminBoardGamesFragment" />
     </fragment>
 
 

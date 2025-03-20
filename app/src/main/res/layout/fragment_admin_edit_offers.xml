@@ -73,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/readex_pro_semibold"
-                    android:text="Title"
+                    android:text="Special Offer Title*"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
 
@@ -96,7 +96,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/readex_pro_semibold"
-                    android:text="@string/description"
+                    android:text="Sepcial Offer Description*"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
 

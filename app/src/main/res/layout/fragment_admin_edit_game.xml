@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/page_background"
-    tools:context=".admin.offers.AdminNewOffers">
+    tools:context=".admin.games.AdminEditGame">
 
     <RelativeLayout
         android:id="@+id/admin_progressContainerNew"
@@ -52,38 +52,47 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/readex_pro_medium"
                 android:gravity="center_vertical"
-                android:text="Add New Offer"
+                android:text="Edit Game"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
         </LinearLayout>
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="100dp">
+            android:layout_height="match_parent"
+            android:layout_marginTop="25dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <ImageView
+                    android:id="@+id/admin_gameImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp"
+                    android:scaleType="centerCrop"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/scrabble" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/readex_pro_semibold"
-                    android:text="Special Offer Title"
+                    android:text="Game Name*"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/newOfferName"
+                    android:id="@+id/editGameName"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginBottom="10dp"
                     android:padding="15dp"
-                    android:hint="Offer Name"
+                    android:hint="Game Name"
                     android:textColor="@color/white"
                     android:textColorHint="@color/statsGray"
                     android:fontFamily="@font/redhatdisplay_regular"
@@ -96,17 +105,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/readex_pro_semibold"
-                    android:text="@string/description"
+                    android:text="Game Description*"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/adminBilliardRoomsEquipmentsDesc"
+                    android:id="@+id/editGameDescription"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_marginBottom="10dp"
                     android:padding="15dp"
-                    android:hint="Special Offer Description"
+                    android:hint="@string/add_description"
                     android:inputType="textMultiLine"
                     android:textColor="@color/white"
                     android:textColorHint="@color/statsGray"
@@ -116,19 +125,37 @@
                     android:maxLines="5"
                     android:background="@drawable/admin_input_bg"/>
 
-                <Button
-                    android:id="@+id/addOfferButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:fontFamily="@font/red_hat_display_bold"
-                    android:gravity="center"
-                    android:text="Save"
-                    android:textSize="18sp"
-                    android:textColor="@color/white"
-                    app:backgroundTint="@null"
-                    android:background="@drawable/button_selector"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/saveGameButton"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/button_selector"
+                        android:fontFamily="@font/readexpro_semibold"
+                        android:text="Save"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/deleteGameButton"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/button_selector2"
+                        android:fontFamily="@font/readexpro_semibold"
+                        android:text="Delete"
+                        android:textColor="#FF0000"
+                        android:textSize="17sp"
+                        app:backgroundTint="@null" />
+                </LinearLayout>
+
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </LinearLayout>

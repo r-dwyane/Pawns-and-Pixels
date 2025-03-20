@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cancel_popup"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:layout_margin="40dp"
+    android:padding="20dp"
+    android:background="@drawable/page_round"
+    android:clipToOutline="true"
+    app:backgroundTint="@color/transparent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Are you sure you want to delete game?"
+        android:textSize="18sp"
+        android:fontFamily="@font/readexpro_semibold"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:layout_gravity="center"/>
+
+
+    <Button
+        android:id="@+id/confirmDelete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="Yes, delete game."
+        android:textColor="@color/white"
+        android:fontFamily="@font/readex_pro"
+        android:textStyle="bold"
+        android:background="@drawable/button_selector"
+        app:backgroundTint="@null"/>
+
+    <Button
+        android:id="@+id/noConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="No, keep game."
+        android:textColor="@color/white"
+        android:fontFamily="@font/readex_pro"
+        android:textStyle="bold"
+        android:background="@drawable/button_selector2"
+        app:backgroundTint="@null"/>
+
+</LinearLayout>
