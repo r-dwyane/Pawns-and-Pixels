@@ -140,7 +140,7 @@
                             android:layout_marginEnd="8dp">
 
                             <ImageButton
-                                android:id="@+id/xboxButton"
+                                android:id="@+id/admin_xboxButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:background="@null"
@@ -183,7 +183,7 @@
                             android:layout_marginEnd="40dp">
 
                             <ImageButton
-                                android:id="@+id/nintendoButton"
+                                android:id="@+id/admin_nintendoButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:background="@null"
@@ -253,15 +253,15 @@
                     android:textSize="16sp" />
 
                 <HorizontalScrollView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:scrollbars="none">
 
                     <LinearLayout
                         android:id="@+id/specialOffersDisplayLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:clipToPadding="false">
 
@@ -278,10 +278,22 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
+                        <TextView
+                            android:id="@+id/admin_noOffersTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No offers available"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/syne"
+                            android:gravity="center"
+                            android:textColor="@android:color/darker_gray"
+                            android:visibility="gone"
+                            android:layout_marginTop="10dp"/>
+
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/admin_offersRecyclerView"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:scrollbars="horizontal"
                             android:layout_marginStart="8dp"/>
 

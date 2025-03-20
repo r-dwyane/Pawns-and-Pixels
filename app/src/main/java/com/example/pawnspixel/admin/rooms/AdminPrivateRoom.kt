@@ -46,7 +46,11 @@ class AdminPrivateRoom : Fragment() {
         updateButton = view.findViewById(R.id.admin_privateUpdate)
 
         val statusOptions = arrayOf("Available", "Maintenance")
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, statusOptions)
+        val adapter = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_dropdown_item,
+            statusOptions
+        )
         statusSpinner.adapter = adapter
 
         loadRoomDetails()

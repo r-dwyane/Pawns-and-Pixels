@@ -9,15 +9,15 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import com.example.pawnspixel.R
 
-class AdminBoardGamesFragment : Fragment() {
+class AdminNintendoGames : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_admin_board_games, container, false)
-        val backBtnAdminBoardGames:ImageButton = view.findViewById(R.id.backBtnAdminBoardGames)!!
-        val addGame: ImageView = view.findViewById(R.id.addBoardGame)
+        val view = inflater.inflate(R.layout.fragment_admin_nintendo_games, container, false)
+        val backBtnAdminBoardGames: ImageButton = view.findViewById(R.id.backBtnAdminBoardGames)!!
+        val addGame: ImageView = view.findViewById(R.id.addNintendoGame)
 
         backBtnAdminBoardGames.setOnClickListener {
             parentFragmentManager.popBackStack()
@@ -38,4 +38,5 @@ class AdminBoardGamesFragment : Fragment() {
 
         return view
     }
+
 }

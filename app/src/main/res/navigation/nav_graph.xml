@@ -232,6 +232,15 @@
         <action
             android:id="@+id/action_adminCMSFragment_to_adminNewOffers"
             app:destination="@id/adminNewOffers" />
+        <action
+            android:id="@+id/action_adminCMSFragment_to_adminEditOffers"
+            app:destination="@id/adminEditOffers" />
+        <action
+            android:id="@+id/action_adminCMSFragment_to_adminXboxGames"
+            app:destination="@id/adminXboxGames" />
+        <action
+            android:id="@+id/action_adminCMSFragment_to_adminNintendoGames"
+            app:destination="@id/adminNintendoGames" />
     </fragment>
     <fragment
         android:id="@+id/adminBoardGamesFragment"
@@ -241,6 +250,9 @@
         <action
             android:id="@+id/action_adminBoardGamesFragment_to_adminCMSFragment"
             app:destination="@id/adminCMSFragment" />
+        <action
+            android:id="@+id/action_adminBoardGamesFragment_to_adminAddGame"
+            app:destination="@id/adminAddGame" />
     </fragment>
     <fragment
         android:id="@+id/adminNintendoSwitchGameRoomFragment"
@@ -395,6 +407,53 @@
         <action
             android:id="@+id/action_adminNewOffers_to_adminCMSFragment"
             app:destination="@id/adminCMSFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminEditOffers"
+        android:name="com.example.pawnspixel.admin.offers.AdminEditOffers"
+        android:label="fragment_admin_edit_offers"
+        tools:layout="@layout/fragment_admin_edit_offers" >
+        <action
+            android:id="@+id/action_adminEditOffers_to_adminCMSFragment"
+            app:destination="@id/adminCMSFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminXboxGames"
+        android:name="com.example.pawnspixel.admin.games.AdminXboxGames"
+        android:label="fragment_admin_xbox_games"
+        tools:layout="@layout/fragment_admin_xbox_games" >
+        <action
+            android:id="@+id/action_adminXboxGames_to_adminCMSFragment"
+            app:destination="@id/adminCMSFragment" />
+        <action
+            android:id="@+id/action_adminXboxGames_to_adminAddGame"
+            app:destination="@id/adminAddGame" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminNintendoGames"
+        android:name="com.example.pawnspixel.admin.games.AdminNintendoGames"
+        android:label="fragment_admin_nintendo_games"
+        tools:layout="@layout/fragment_admin_nintendo_games" >
+        <action
+            android:id="@+id/action_adminNintendoGames_to_adminCMSFragment"
+            app:destination="@id/adminCMSFragment" />
+        <action
+            android:id="@+id/action_adminNintendoGames_to_adminAddGame"
+            app:destination="@id/adminAddGame" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminAddGame"
+        android:name="com.example.pawnspixel.admin.games.AdminAddGame"
+        android:label="AdminAddGame" >
+        <action
+            android:id="@+id/action_adminAddGame_to_adminNintendoGames"
+            app:destination="@id/adminNintendoGames" />
+        <action
+            android:id="@+id/action_adminAddGame_to_adminBoardGamesFragment"
+            app:destination="@id/adminBoardGamesFragment" />
+        <action
+            android:id="@+id/action_adminAddGame_to_adminXboxGames"
+            app:destination="@id/adminXboxGames" />
     </fragment>
 
 
