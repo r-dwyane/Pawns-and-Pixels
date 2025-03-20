@@ -1,0 +1,71 @@
+<LinearLayout
+    android:id="@+id/adminBoardGamesLinearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginStart="25dp"
+    android:layout_marginEnd="25dp"
+    android:layout_marginBottom="20dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/admin_gameName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/syne"
+            android:text="Game Name"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/edit_pencil" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/whiteDivider"
+        android:layout_width="205dp"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:src="@drawable/white_divider" />
+
+    <ImageView
+        android:id="@+id/admin_gameImage"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/scrabble" />
+
+    <TextView
+        android:id="@+id/admin_gameDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/red_hat_display"
+        android:text="Challenge your mind and vocabulary in this classic word game. Create high-scoring words, outwit your opponents, and prove your mastery of language in a battle of wits!"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:gravity="center"/>
+
+</LinearLayout>

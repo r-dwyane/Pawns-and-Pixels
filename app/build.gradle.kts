@@ -61,4 +61,5 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.android.gif.drawable)
     implementation(libs.androidx.swiperefreshlayout)
+    implementation(libs.glide)
 }
