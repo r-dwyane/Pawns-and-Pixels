@@ -49,6 +49,9 @@ class HomeActivity : AppCompatActivity() {
         val adapter = TabPageAdapter(this, tabLayout.tabCount)
         viewPager.adapter = adapter
 
+        viewPager.currentItem = 1
+        tabLayout.getTabAt(1)?.select()
+
         viewPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback(){
             override fun onPageSelected(position: Int) {
                 tabLayout.selectTab(tabLayout.getTabAt(position))

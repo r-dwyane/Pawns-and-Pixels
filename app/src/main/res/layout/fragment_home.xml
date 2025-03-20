@@ -45,9 +45,10 @@
 
                     <TextView
                         android:id="@+id/welcomeDescText"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
+                        android:textStyle="italic"
                         android:fontFamily="@font/red_hat_display_medium"
                         android:text="Level up your game now!"
                         android:textColor="@color/white"
@@ -112,7 +113,7 @@
                         android:id="@+id/gamesButtonsLayout"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="25dp"
+                        android:layout_marginStart="20dp"
                         android:orientation="horizontal">
 
                         <FrameLayout
@@ -262,7 +263,6 @@
                 android:id="@+id/specialOffersLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
@@ -271,6 +271,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/syne_bold"
+                    android:layout_marginStart="25dp"
                     android:layout_marginEnd="25dp"
                     android:text="Special Offers!"
                     android:textColor="@color/white"
@@ -280,21 +281,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:scrollbars="none">
+                    android:layout_gravity="left"
+                    android:scrollbars="none"
+                    android:clipToPadding="false">
 
                     <LinearLayout
                         android:id="@+id/specialOffersDisplayLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:clipToPadding="false">
+                        android:layout_marginStart="25dp">
 
                         <FrameLayout
                             android:id="@+id/specialOffersDisplayFrameLayout1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/special_offers_bg"
-                            android:layout_marginEnd="8dp">
+                            android:layout_marginEnd="15dp">
 
                             <LinearLayout
                                 android:id="@+id/specialOffersDisplayLinearLayout1"
@@ -330,7 +333,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/special_offers_bg"
-                            android:layout_marginEnd="8dp">
+                            android:layout_marginRight="50dp">
 
                             <LinearLayout
                                 android:id="@+id/specialOffersDisplayLinearLayout2"
@@ -369,6 +372,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="15dp"
+                    android:layout_marginStart="25dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginEnd="25dp"
                     android:src="@drawable/content_divider" />

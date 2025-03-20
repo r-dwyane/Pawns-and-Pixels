@@ -29,6 +29,9 @@ class AdminActivity : AppCompatActivity() {
         val adapter = AdminTabPageAdapter(this, tabLayout.tabCount)
         viewPager.adapter = adapter
 
+        viewPager.currentItem = 1
+        tabLayout.getTabAt(1)?.select()
+
         viewPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback(){
             override fun onPageSelected(position: Int) {
                 tabLayout.selectTab(tabLayout.getTabAt(position))

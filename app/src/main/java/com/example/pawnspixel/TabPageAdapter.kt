@@ -12,8 +12,8 @@ class TabPageAdapter(activity: FragmentActivity, private val tabCount: Int):
 
     override fun createFragment(position: Int): Fragment {
         return when(position){
-            0 -> Home()
-            1 -> Reservations()
+            0 -> Reservations()
+            1 -> Home()
             2 -> Account()
             else -> Home()
         }

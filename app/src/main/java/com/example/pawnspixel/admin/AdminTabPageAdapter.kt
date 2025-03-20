@@ -11,8 +11,8 @@ class AdminTabPageAdapter(activity: FragmentActivity, private val tabCount: Int)
 
     override fun createFragment(position: Int): Fragment {
         return when(position){
-            0 -> AdminHomeFragment()
-            1 -> AdminReservationsFragment()
+            0 -> AdminReservationsFragment()
+            1 -> AdminHomeFragment()
             2 -> AdminCMSFragment()
             else -> AdminHomeFragment()
         }
