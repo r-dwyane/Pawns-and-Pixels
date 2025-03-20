@@ -35,10 +35,13 @@
                     android:text="Account Settings"
                     android:fontFamily="@font/syne_bold"
                     android:textColor="@color/white"
+                    android:layout_weight="1"
                     android:textSize="20sp"/>
+
                 <ImageView
                     android:layout_width="70dp"
                     android:layout_height="70dp"
+                    android:layout_marginEnd="25dp"
                     android:src="@drawable/account"/>
             </LinearLayout>
 
@@ -82,11 +85,11 @@
                     <TextView
                         android:id="@+id/account_name"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:text=""
                         android:fontFamily="@font/red_hat_display_bold"
                         android:textColor="@color/white"
-                        android:textSize="14sp"/>
+                        android:textSize="16sp"/>
 
                 </LinearLayout>
 
@@ -108,11 +111,11 @@
                     <TextView
                         android:id="@+id/account_email"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:text=""
                         android:fontFamily="@font/red_hat_display_bold"
                         android:textColor="@color/white"
-                        android:textSize="14sp"/>
+                        android:textSize="16sp"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -134,11 +137,11 @@
                     <TextView
                         android:id="@+id/customer_password"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="************"
                         android:fontFamily="@font/red_hat_display_bold"
                         android:textColor="@color/white"
-                        android:textSize="14sp"/>
+                        android:textSize="16sp"/>
                 </LinearLayout>
 
                 <View
@@ -146,8 +149,7 @@
                     android:layout_height="1dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/content_divider"
-                    />
+                    android:background="@drawable/content_divider" />
 
                 <TextView
                     android:id="@+id/edit_info"
@@ -184,6 +186,7 @@
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:fontFamily="@font/readex_pro"/>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -192,61 +195,67 @@
 
                 <LinearLayout
                     android:id="@+id/terms_conditions"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="40dp"
                     android:orientation="horizontal"
                     android:background="?attr/selectableItemBackground"
                     android:clickable="true"
-                    android:focusable="true"
-                    android:padding="8dp">
+                    android:focusable="true">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Terms and Conditions"
+                        android:fontFamily="@font/red_hat_display_medium"
                         android:textColor="@color/white"
                         android:textSize="16sp"
-                        android:fontFamily="@font/redhatdisplay_regular"
-                        />
+                        android:layout_weight="1"/>
+
                     <ImageView
                         android:layout_width="15dp"
                         android:layout_height="15dp"
                         android:src="@drawable/right_tag"
-                        android:layout_marginStart="50dp"
-                        />
+                        android:layout_gravity="center"/>
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/privacy_policy"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="40dp"
                     android:orientation="horizontal"
                     android:background="?attr/selectableItemBackground"
                     android:clickable="true"
-                    android:focusable="true"
-                    android:padding="8dp">
+                    android:focusable="true">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Privacy Policy"
+                        android:fontFamily="@font/red_hat_display_medium"
                         android:textColor="@color/white"
                         android:textSize="16sp"
-                        android:fontFamily="@font/redhatdisplay_regular"
-                        />
+                        android:layout_weight="1" />
+
                     <ImageView
                         android:layout_width="15dp"
                         android:layout_height="15dp"
                         android:src="@drawable/right_tag"
-                        android:layout_marginStart="108dp"
-                        />
+                        android:layout_gravity="center" />
                 </LinearLayout>
+
                 <View
                     android:layout_width="200dp"
                     android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/content_divider"
-                    />
+                    android:background="@drawable/content_divider" />
+
                 <TextView
                     android:id="@+id/signOut"
                     android:layout_width="wrap_content"

@@ -91,20 +91,11 @@
                     android:textColor="@color/white"
                     android:textSize="16sp" />
 
-                <ImageView
-                    android:id="@+id/contentDivider1"
-                    android:layout_width="match_parent"
-                    android:layout_marginStart="25dp"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="25dp"
-                    android:src="@drawable/content_divider" />
-
                 <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="left"
+                    android:layout_marginTop="10dp"
                     android:padding="5sp"
                     android:scrollbars="none"
                     android:clipToPadding="false">
@@ -205,7 +196,7 @@
                             android:id="@+id/nintendoFrameLayout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="40dp">
+                            android:layout_marginEnd="38dp">
 
                             <ImageButton
                                 android:id="@+id/nintendoButton"
@@ -280,90 +271,35 @@
                 <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="left"
-                    android:scrollbars="none"
-                    android:clipToPadding="false">
+                    android:layout_marginTop="15dp"
+                    android:scrollbars="none">
 
                     <LinearLayout
                         android:id="@+id/specialOffersDisplayLayout"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:layout_marginStart="25dp">
+                        android:layout_marginStart="25dp"
+                        android:clipToPadding="false">
 
-                        <FrameLayout
-                            android:id="@+id/specialOffersDisplayFrameLayout1"
+                        <TextView
+                            android:id="@+id/noOffersTextView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/special_offers_bg"
-                            android:layout_marginEnd="15dp">
+                            android:text="No offers available"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/syne"
+                            android:gravity="center"
+                            android:textColor="@android:color/darker_gray"
+                            android:visibility="gone"
+                            android:layout_marginTop="10dp" />
 
-                            <LinearLayout
-                                android:id="@+id/specialOffersDisplayLinearLayout1"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:layout_margin="10dp"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:id="@+id/specialOffersText1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/red_hat_display_bold"
-                                    android:text="Free Beer Day"
-                                    android:textColor="@color/white"
-                                    android:textSize="14sp" />
-
-                                <TextView
-                                    android:id="@+id/specialOffersText2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/red_hat_display_medium"
-                                    android:text="1st day of December | Join us for free beer!"
-                                    android:textColor="@color/white"
-                                    android:textSize="12sp" />
-                            </LinearLayout>
-
-                        </FrameLayout>
-
-                        <FrameLayout
-                            android:id="@+id/specialOffersDisplayFrameLayout2"
-                            android:layout_width="match_parent"
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/offersRecyclerView"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/special_offers_bg"
-                            android:layout_marginRight="50dp">
-
-                            <LinearLayout
-                                android:id="@+id/specialOffersDisplayLinearLayout2"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:layout_margin="10dp"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:id="@+id/specialOffersText3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/red_hat_display_bold"
-                                    android:text="Flash Sale"
-                                    android:textColor="@color/white"
-                                    android:textSize="14sp" />
-
-                                <TextView
-                                    android:id="@+id/specialOffersText4"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/red_hat_display_medium"
-                                    android:text="24-Hour Flash Sale | 20% off all board games!"
-                                    android:textColor="@color/white"
-                                    android:textSize="12sp" />
-                            </LinearLayout>
-
-                        </FrameLayout>
-
+                            android:scrollbars="horizontal"
+                            android:layout_marginEnd="40dp"/>
                     </LinearLayout>
                 </HorizontalScrollView>
 

@@ -9,6 +9,7 @@ import android.widget.FrameLayout
 import android.widget.ImageButton
 import com.example.pawnspixel.R
 import com.example.pawnspixel.admin.games.AdminBoardGamesFragment
+import com.example.pawnspixel.admin.offers.AdminNewOffers
 import com.example.pawnspixel.admin.rooms.AdminBilliardTable
 import com.example.pawnspixel.admin.rooms.AdminNintendoSwitchGameRoomFragment
 import com.example.pawnspixel.admin.rooms.AdminPixelsGaming
@@ -27,6 +28,21 @@ class AdminCMSFragment : Fragment() {
         val billiardButton: FrameLayout = view.findViewById(R.id.admin_billiard_table)!!
         val privateButton: FrameLayout = view.findViewById(R.id.admin_private_room)!!
         val nintendoButton: FrameLayout = view.findViewById(R.id.admin_nintendo_rooms)!!
+        val addOffer: ImageButton = view.findViewById(R.id.new_special_offers_cms)!!
+
+
+        addOffer.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .setCustomAnimations(
+                    R.anim.slide_in_left,
+                    R.anim.slide_out_right,
+                    R.anim.slide_in_left,
+                    R.anim.slide_out_right
+                )
+                .replace(R.id.admin_nav_host_fragment, AdminNewOffers())
+                .addToBackStack(null)
+                .commit()
+        }
 
         //GAMES
         boardGames.setOnClickListener {

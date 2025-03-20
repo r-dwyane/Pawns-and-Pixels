@@ -229,6 +229,9 @@
         <action
             android:id="@+id/action_adminCMSFragment_to_adminNintendoSwitchGameRoomFragment"
             app:destination="@id/adminNintendoSwitchGameRoomFragment" />
+        <action
+            android:id="@+id/action_adminCMSFragment_to_adminNewOffers"
+            app:destination="@id/adminNewOffers" />
     </fragment>
     <fragment
         android:id="@+id/adminBoardGamesFragment"
@@ -382,6 +385,15 @@
         tools:layout="@layout/fragment_admin_billiard_table" >
         <action
             android:id="@+id/action_adminBilliardTable_to_adminCMSFragment"
+            app:destination="@id/adminCMSFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminNewOffers"
+        android:name="com.example.pawnspixel.admin.offers.AdminNewOffers"
+        android:label="fragment_admin_new_offers"
+        tools:layout="@layout/fragment_admin_new_offers" >
+        <action
+            android:id="@+id/action_adminNewOffers_to_adminCMSFragment"
             app:destination="@id/adminCMSFragment" />
     </fragment>
 

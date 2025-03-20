@@ -3,7 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="terms_and_conditions_text">
-    By creating an account, you agree to the \n<b><u>Terms and Conditions</u></b>
+    By creating an account, you agree to the <b><u>Terms and Conditions</u></b>
     </string>
     <string name="already_have_an_account">
     Already have an account? <b><u>Sign In</u></b>
@@ -33,5 +33,68 @@
     <string name="add_description">Add description...</string>
     <string name="status">Status</string>
     <string name="update">Update</string>
+    <string name="terms_and_conditions_header">Welcome to Pawns &amp; Pixels!</string>
+    <string name="terms_and_conditions">These <b>Terms and Conditions</b> govern your use of our platform for booking board games, gaming rooms, and equipment rentals. By accessing or using our app, you agree to comply with these terms.</string>
 
+    <string name="tnc1">1.1. <b>Eligibility</b> – You must be at least 18 years old or have parental consent to use our platform.
+        \n1.2. <b>Account Registration</b> – Users must provide accurate information. Any false or misleading details may result in account suspension.
+        \n1.3. <b>Prohibited Activities</b> – Users may not misuse the platform for fraudulent bookings, unauthorized rentals, or abusive behavior towards staff and other customers.</string>
+
+    <string name="tnc2">2.1. <b>Availability</b> – All bookings are subject to availability. Real-time availability is displayed in the app, but confirmation is only guaranteed once the booking is approved.
+        \n2.2. <b>Advance Booking</b> – Some rooms and equipment require advance booking. Walk-ins are allowed but depend on slot availability.
+        \n2.3. <b>Booking Confirmation</b> – A confirmation email or notification will be sent once your booking is successfully scheduled.
+        \n2.4. <b>Booking Duration &amp; Player Limit</b></string>
+    <string name="tnc2_1">• Each reservation includes a specified start time and end time. Users must arrive on time to avoid losing playtime.
+            \n• Maximum duration varies based on the game, room, or equipment booked. Extensions are allowed only if there is availability.
+            \n• The number of players per booking is limited based on the room or game capacity. Overcrowding beyond the allowed limit may result in cancellation or additional charges.</string>
+
+    <string name="tnc3">3.1. <b>Payment Method</b> – No downpayment is required. Customers will pay in cash upon arrival at the store before using the booked service.
+        \n3.2. <b>Pricing</b> – Rates vary depending on peak hours, duration, and game/room type. Additional fees may apply for damages or overtime use.
+        \n3.3. <b>Cancellation Policy</b> –</string>
+    <string name="tnc3_1">• Cancellations made at least 24 hours before the booking start time are allowed without penalty.
+        \n• No-shows will result in the forfeiture of the reserved slot and may lead to account restrictions or loss of priority booking privileges.</string>
+
+    <string name="tnc4">4.1. <b>User-Initiated Cancellation</b> – You may cancel or reschedule through the app based on the cancellation policy above.
+        \n4.2. <b>Venue-Initiated Cancellation</b> – We reserve the right to cancel bookings due to technical issues, maintenance, or unforeseen circumstances.</string>
+
+    <string name="tnc5">5.1. <b>Proper Use of Equipment &amp;Facilities</b> – Users must handle equipment and gaming areas responsibly. Any intentional damage will result in penalties or charges.
+        \n5.2. <b>Food &amp; Drinks</b> – Some rooms allow food and beverages, but users must clean up after themselves.
+        \n5.3. <b>Noise &amp; Behavior</b> – Excessive noise, offensive behavior, or harassment of other users/staff will lead to suspension or banning from the platform.</string>
+
+    <string name="tnc6">6.1. <b>User Responsibility</b> – Users are responsible for their personal belongings. The company is not liable for lost or stolen items.
+        \n6.2. <b>Technical Issues</b> – We do our best to ensure seamless app performance but do not guarantee 100% uptime.
+        \n6.3. <b>Injury or Accidents</b> – Users participate in gaming and activities at their own risk. We are not responsible for any injuries sustained during gameplay.</string>
+
+    <string name="tnc7">7.1. <b>Data Collection</b> – We collect user information for booking purposes, app improvements, and marketing promotions.
+        \n7.2. <b>Third-Party Sharing</b> – We do not sell or share your data with third parties without your consent.
+        \n7.3. <b>Security</b> – We implement security measures to protect user data but cannot guarantee absolute security.</string>
+
+    <string name="tnc8">We may update these Terms &amp; Conditions at any time. Continued use of the platform after updates constitutes acceptance of the revised terms.</string>
+
+    <string name="tnc9">For questions or concerns, contact us at:</string>
+    <string name="tnc9_1">📩 pawnsandpixels@gmail.com
+        \n📞 +63 912 345 6789</string>
+
+    <string name="privpol1">We collect the following types of information to provide and improve our services:</string>
+    <string name="privpol1_1">a. Personal Information</string>
+    <string name="privpol1_2">• Name
+        \n• Email address
+        \n• Phone number
+        \n• Any other details you provide during the booking process</string>
+
+    <string name="privpol2">We use the collected information to:</string>
+    <string name="privpol2_1">• Process and manage reservations or bookings
+        \n• Communicate updates about your reservations
+        \n• Improve the functionality and user experience of the app
+        \n• Provide customer support</string>
+
+    <string name="privpol3">We may share your information in the following circumstances:</string>
+    <string name="privpol3_1">• Service Providers: With trusted third-party providers who assist in delivering our services.
+        \n• Legal Obligations: If required by law or to protect the rights, property, or safety of users or others.
+        \n• Business Transfers: In the event of a merger, acquisition, or sale of assets.</string>
+
+    <string name="privpol4">We do not sell, rent, or share your personal information with third parties for their direct marketing purposes.</string>
+
+    <string name="boardGameDesc">Challenge your mind and vocabulary in this classic word game. Create high-scoring words, outwit your opponents, and prove your mastery of language in a battle of wits!</string>
+    <string name="boardGameDesc2">Get ready for a fruity frenzy! Halli Galli is a fast-paced card game where players race to ring the bell when they spot five fruits of the same kind. Sharpen your reflexes and stay on your toes in this exhilarating game for all ages.</string>
 </resources>
