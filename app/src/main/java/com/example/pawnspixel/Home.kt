@@ -8,7 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.pawnspixel.authentication.CustomerSignInFragment
 import com.example.pawnspixel.games.BoardGames
 import com.example.pawnspixel.games.NintendoSwitchGames
@@ -17,8 +20,15 @@ import com.example.pawnspixel.rooms.BilliardTableFragment
 import com.example.pawnspixel.rooms.NintendoRoomFragment
 import com.example.pawnspixel.rooms.PixelsGamingFragment
 import com.example.pawnspixel.rooms.PrivateRoomFragment
+import com.google.firebase.firestore.FirebaseFirestore
 
 class Home : Fragment() {
+
+    private lateinit var offersRecyclerView: RecyclerView
+    private lateinit var offersAdapter: OffersAdapter
+    private lateinit var noOffersTextView: TextView
+    private val offersList = mutableListOf<Offer>()
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +44,15 @@ class Home : Fragment() {
         val boardGames = view?.findViewById<ImageButton>(R.id.boardGamesButton)
         val nintendoSwitchGames = view?.findViewById<ImageButton>(R.id.nintendoButton)
         val xboxGames = view?.findViewById<ImageButton>(R.id.xboxButton)
+
+        offersRecyclerView = view.findViewById(R.id.offersRecyclerView)
+        noOffersTextView = view.findViewById(R.id.noOffersTextView)
+
+        offersRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        offersAdapter = OffersAdapter(offersList)
+        offersRecyclerView.adapter = offersAdapter
+
+        fetchOffersFromFirestore()
 
         activity?.findViewById<View>(R.id.nav_host_fragment)?.visibility = View.VISIBLE
 
@@ -96,6 +115,35 @@ class Home : Fragment() {
         SessionManager.contactNumber = sharedPrefManager.getUserNumber()
         return view
     }
+
+    private fun fetchOffersFromFirestore() {
+        db.collection("offers").addSnapshotListener { snapshots, error ->
+            if (error != null) {
+                Log.e("Firestore", "Error fetching offers", error)
+                return@addSnapshotListener
+            }
+
+            offersList.clear()
+            if (snapshots != null) {
+                for (document in snapshots.documents) {
+                    val name = document.getString("name") ?: "No Name"
+                    val description = document.getString("description") ?: "No Description"
+                    offersList.add(Offer(name, description))
+                }
+            }
+
+            if (offersList.isEmpty()) {
+                noOffersTextView.visibility = View.VISIBLE
+                offersRecyclerView.visibility = View.GONE
+            } else {
+                noOffersTextView.visibility = View.GONE
+                offersRecyclerView.visibility = View.VISIBLE
+            }
+
+            offersAdapter.notifyDataSetChanged()
+        }
+    }
+
     override fun onResume() {
         super.onResume()
         activity?.findViewById<View>(R.id.nav_host_fragment)?.visibility = View.VISIBLE

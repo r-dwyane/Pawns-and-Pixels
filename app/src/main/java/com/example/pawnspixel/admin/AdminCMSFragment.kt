@@ -30,6 +30,7 @@ class AdminCMSFragment : Fragment() {
         val nintendoButton: FrameLayout = view.findViewById(R.id.admin_nintendo_rooms)!!
         val addOffer: ImageButton = view.findViewById(R.id.new_special_offers_cms)!!
 
+
         addOffer.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .setCustomAnimations(
